@@ -1,7 +1,7 @@
 <?php
 /*
 Plugin Name: Join My Multisite
-Plugin URI: http://halfelf.org/plugins/auto-add-multisite/
+Plugin URI: http://halfelf.org/plugins/join-my-multisite/
 Description: Allow logged in users to add themselves to sites (or auto-add them to all sites).
 Version: 1.0
 Author: Mika Epstein (Ipstenu)
@@ -26,103 +26,136 @@ Copyright 2012 Mika Epstein (email: ipstenu@ipstenu.org)
     along with WordPress.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-// We're keeping this code for a reason.
-function helfjmm_add_users( ) {
-    global $current_user, $blog_id;
+// This is what controls how people get added.
+    $jmm_options = get_option( 'helfjmm_options' );
 
-    if(!is_user_logged_in())
-    return false;
+    if ($jmm_options['type'] == 1) {add_action('init','jmm_joinsite');}
+    if ($jmm_options['type'] == 2) { add_action( 'widgets_init', 'jmm_load_add_user_widgets' ); }
+
+
+class JMM {
+
+    function init() {
+        $jmm_options = get_option( 'helfjmm_options' );
+		if ( isset($_GET['settings-updated']) && ( $_GET['page'] ==
+'jmm' ) ) { 
+            add_action('admin_notices', array('JMM','updateMessage'));
+            if ( $jmm_options['role'] != get_option( 'default_user_role' ) )
+                { update_option(default_user_role, $jmm_options['role']); }
+        }
+        
+        if ( !isset($jmm_options['type']) ) {
+        	$jmm_options['type'] = '3'; // 3 = keep things the same
+        	$jmm_options['role'] = 'subscriber'; // You know what this is
+        	update_option('jmm_options', $jmm_options);
+        }
+    }
+
+    // Messages, used by INIT
+	function updateMessage() {
+		echo "<div id='message' class='updated fade'><p><strong>".__('Options Updated!', helfjmm)."</strong></p></div>";
+		}
+
+
+    // donate link on manage plugin page
+    function donate_link($links, $file) {
+        if ($file == plugin_basename(__FILE__)) {
+                $donate_link = '<a href="https://www.wepay.com/donations/halfelf-wp">Donate</a>';
+                $links[] = $donate_link;
+        }
+        return $links;
+    }
+
+	// Return the filesystem path that the plugin lives in.
+	function getPath() {
+		return dirname(__FILE__) . '/';
+	}
  
-    if( !is_blog_user() ) {
-        add_user_to_blog($blog_id, $current_user->ID, "subscriber");
-    }
-}
+    // Settings Pages
+    function add_settings_page() {
+        load_plugin_textdomain(helfjmm, JMM::getPath() . 'i18n');
+        global $jmm_settings_page;
+        $jmm_settings_page = add_users_page(__('Join My Multisite Settings'), __('Join My Multisite'), 'manage_options', 'jmm', array('JMM', 'settings_page'));
+    	}
+ 
+    // Register and define the settings
 
-/* 
-
-OPTIONS on the add new user page:
-
-1) Auto-add users to this site
-
-2) Allow logged in users to join via widget
-
-3) Keep things the same (no auto-add, no widget)
-
-You can only have one checked. 
-
-// Register and define the settings
-add_action('admin_init', 'helfjmm_admin_init');
-
-function helfjmm_admin_init(){
-
-    add_settings_section(
-        'helfjmm_setting_section', 
-        'Join My Multisite Settings', 
-        'helfjmm_setting_section_callback_function',
-        'new-user'
-    );
-
-
- 	// Add the field with the names and function to use for our new
- 	// settings, put it in our new section
- 	add_settings_field(
- 		'helfjmm_setting_basics',
-		'Options',
-		'helfjmm_setting_basics_callback_function',
-		'new-user',
-		'helfjmm_setting_section');
-
-
-	register_setting(
-		'discussion',               // settings page
-		'ippy_bcq_options',         // option name
-		'ippy_bcq_validate_options' // validation callback
-	);
-	
-	add_settings_field(
-		'ippy_bcq_bbpress',         // id
-		'Quicktags',                // setting title
-		'ippy_bcq_setting_input',   // display callback
-		'discussion',               // settings page
-		'default'                   // settings section
-	);
-}
-
-
-
-Default Role:
-
-Dropdown with the available roles.
-
-wp_dropdown_roles()
-
-    <tr valign="top">
-        <th scope="row"><?php _e('Select default role for new users', 'helfjmm'); ?></th>
-        <td>
-        <select name="helfjmm_default_user_role[<?php echo $blog[ 'blog_id' ]; ?>]" id="helfjmm_default_user_role[<?php echo $blog[ 'blog_id' ]; ?>]">
-            <option value="none"><?php _e( '-- None --', 'helfjmm' )?></option>
-                <?php wp_dropdown_roles( get_option( 'helfjmm_default_user_role' ) ); ?>
-        </select>
-        </td>
-    </tr>
-
-/*
-
-/* Add our function to the widgets_init hook. */
-add_action( 'widgets_init', 'helfjmm_load_add_user_widgets' );
-
-/* if 'allow widget' is checked, then show .... */
-
-    // Function that registers our widget.
-    function helfjmm_load_add_user_widgets() {
-    	register_widget( 'helfjmm_Add_User_Widget' );
+    function settings_page() {
+    // Main Settings
+    ?>
+    <div class="wrap">
+        <div id="icon-users" class="icon32"><br></div>
+        <h2><?php _e("Join My Multisite Settings", helfjmm); ?></h2>
+        
+        <?php 
+        $jmm_options = get_option( 'helfjmm_options' );    
+        ?>
+    
+        <form method="post" action="options.php">
+            <input type="hidden" name="action" value="update" />
+            <input type="hidden" name="page_options" value="helfjmm_options" />
+            <?php wp_nonce_field('update-options'); ?>
+    
+            <p><?php _e('Select a membership type and a default role.', helfjmm); ?></p>
+            
+            <table class="form-table">
+                <tbody>
+                    <tr valign="top">
+                        <th scope="row"><?php _e('Membership:', helfjmm); ?></th>
+                        <td><input type="radio" name="helfjmm_options[type]" value="1" <?php if ($jmm_options['type'] == 1) echo 'checked="checked"'; ?>> <label for="jmm-type"><strong><?php _e('Auto:', helfjmm); ?></strong> <?php _e('Auto-Add signed in users to this site when they visit.', helfjmm); ?></label><br />
+                            <input type="radio" name="helfjmm_options[type]" value="2" <?php if ($jmm_options['type'] == 2) echo 'checked="checked"'; ?>> <label for="jmm-type"><strong><?php _e('Manual:', helfjmm); ?></strong> <?php _e('Allow signed in users to join via a widget', helfjmm); ?></label><br />
+                            <input type="radio" name="helfjmm_options[type]" value="3" <?php if ($jmm_options['type'] == 3) echo 'checked="checked"'; ?>> <label for="jmm-type"><strong><?php _e('None:', helfjmm); ?></strong> <?php _e('Don\'t allow new users to add themselves this site, add them manually', helfjmm); ?></label>
+                        </td>
+                    </tr>
+    
+                <tr>
+                        <th scope="row"><?php _e('New User Default Role:', helfjmm); ?></th>
+                        <td>
+                        <select name="helfjmm_options[role]" id="<?php echo $jmm_options['role']; ?>">
+                        <option value="none"><?php _e( '-- None --', 'helfjmm' )?></option>
+                        <?php wp_dropdown_roles( get_option( 'default_user_role' ) ); ?>
+                        </select>
+                        </td>
+                    </tr>
+    
+            </tbody>
+            </table>
+            
+            <p class="submit"><input class='button-primary' type='Submit' name='update' value='<?php _e("Update Options", helfjmm); ?>' id='submitbutton' /></p>
+    
+        </form>
+    <?php
     }
 
-/* This is the widget! */
-class helfjmm_Add_User_Widget extends WP_Widget {
+    // Add users
+    function join_site( ) {
+        global $current_user, $blog_id;
+        
+        $jmm_options = get_option( 'helfjmm_options' );
+    
+        if(!is_user_logged_in())
+        return false;
+     
+        if( !is_blog_user() ) {
+            add_user_to_blog($blog_id, $current_user->ID, $jmm_options['role']);
+        }
+    }
 
-    function helfjmm_Add_User_Widget() {
-		$widget_ops = array( 'classname' => 'helfjmm_add_users', 'description' => 'Allow members of your network to join a specific site.' );
+
+}
+
+/* All this is the widget stuff */
+
+// Function that registers our widget.
+function jmm_load_add_user_widgets() {
+    register_widget( 'jmm_Add_User_Widget' );
+}
+
+// This is the widget!
+class jmm_Add_User_Widget extends WP_Widget {
+
+    function jmm_Add_User_Widget() {
+		$widget_ops = array( 'classname' => 'jmm_add_users', 'description' => 'Allow members of your network to join a specific site.' );
 		$control_ops = array( 'width' => 300, 'height' => 350, 'id_base' => 'helf-add-user-widget' );
 		$this->WP_Widget( 'helf-add-user-widget', 'Add Users to Sites Widget', $widget_ops, $control_ops );
 	}
@@ -136,13 +169,7 @@ class helfjmm_Add_User_Widget extends WP_Widget {
 		$member = $instance['member'];
 		$welcome = $instance['welcome'];
 		global $current_user, $blog_id;
-
-        if (is_ssl()) {
-            $schema_ssl = 'https://'; 
-        } else { 
-            $schema_ssl = 'http://'; 
-        }
-                		
+   		
 		/* Before widget (defined by themes). */
 		echo $before_widget;
 
@@ -150,11 +177,9 @@ class helfjmm_Add_User_Widget extends WP_Widget {
 		if ( $title )
 			echo $before_title . $title . $after_title;
 
-			if( isset($_POST['helf-join-site']) || isset($_POST['join-site']) ){
-                // This is the magic sauce.			
-    			$source = $schema_ssl.$_SERVER["HTTP_HOST"].$_SERVER["REQUEST_URI"];
-    			$source = substr($source,0, -15);
-                helfjmm_add_user();
+			if( isset($_POST['jmm-join-site']) || isset($_POST['join-site']) ){
+                // This is the magic sauce.
+                jmm_joinsite();
                 echo $welcome;
             } else {
                 if(!is_user_logged_in() && get_option('users_can_register') ) {
@@ -162,12 +187,12 @@ class helfjmm_Add_User_Widget extends WP_Widget {
                     echo $notregistered;
                 } elseif( !is_blog_user() ) {
                     // If user IS logged in, then let's invite them to play.
-                    echo '<form action="?helf-join-site" method="post" id="notmember">';
-                    echo '<input type="hidden" name="action" value="helf-join-site">';
+                    echo '<form action="?jmm-join-site" method="post" id="notmember">';
+                    echo '<input type="hidden" name="action" value="jmm-join-site">';
                     echo '<input type="submit" value="'.$notmember.'" name="join-site" id="join-site" class="button">';
                     echo '</form>';
                 } else {
-                    // Otehrwise we're already a member, hello, mum!
+                    // Otherwise we're already a member, hello, mum!
                     echo $member;
                 }
         
@@ -216,3 +241,11 @@ class helfjmm_Add_User_Widget extends WP_Widget {
 <?php 
 		}
 }
+
+
+// Actions and Filters
+
+add_filter('plugin_row_meta', array('JMM', 'donate_link'), 10, 2);
+add_action('admin_menu', array('JMM', 'add_settings_page'));
+add_action('jmm_joinsite', array('JMM', 'join_site'));
+add_action('init', array('JMM', 'init'));
