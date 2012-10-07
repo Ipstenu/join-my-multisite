@@ -6,7 +6,7 @@ Tested up to: 3.5
 Stable tag: 1.0
 Donate link: https://www.wepay.com/donations/halfelf-wp
 
-Automatically add existing users to any site on your network that they visit, or let them decide at the click a button.
+Allow site admins to automatically add existing users to their site, or let users decide at the click a button.
 
 == Description ==
 
@@ -16,6 +16,7 @@ By activating this plugin, you give your Site Admins the following options:
 
 * Auto-add users
 * Have a 'Join This Site' button in a widget
+* Keep things exactly as they are
 
 It's really that simple! 
 
@@ -29,7 +30,7 @@ If they decide to use a 'Join This Site' button, then they can customize the but
 ==Changelog==
 
 =  1.0 =
-* DAY MONTH, 2012 by Ipstenu
+* 07 October, 2012 by Ipstenu
 * First completed version.
 
 == Installation ==
@@ -50,3 +51,7 @@ None yet.
 = What happens if the network doesn't allow registrations? =
 
 Then your non-logged in users see nothing.
+
+= How do I style the button? =
+
+By default it will pick up whatever style your theme has, so if it styles buttons, you'll automatically match. If you want more, the css is `input#join-site.button` to just play with the button.
