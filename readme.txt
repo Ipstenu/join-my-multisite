@@ -6,7 +6,7 @@ Tested up to: 3.5
 Stable tag: 1.0
 Donate link: https://www.wepay.com/donations/halfelf-wp
 
-Allow site admins to automatically add existing users to their site, or let users decide at the click a button.
+Allow site admins to automatically add existing network users to their site, or let users decide at the click a button.
 
 == Description ==
 
