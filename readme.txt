@@ -6,7 +6,7 @@ Tested up to: 3.5
 Stable tag: 1.0
 Donate link: https://www.wepay.com/donations/halfelf-wp
 
-Allow site admins to automatically add existing network users to their site, or let users decide at the click a button.
+Allow site admins to automatically add existing users to their site, or let users decide at the click a button.
 
 == Description ==
 
@@ -20,17 +20,23 @@ By activating this plugin, you give your Site Admins the following options:
 
 It's really that simple! 
 
-If they decide to auto-add, then any time a logged in user visits a site, they will be magically added to that site.
+If they decide to auto-add, then any time a logged in user visits a site, they will be magically added to that site. If they decide to use a 'Join This Site' button, then they can customize the button message text for users who are logged in but not members, not logged in, or already members. Don't worry, if you have registation turned off, they won't see the 'register' button.
 
-If they decide to use a 'Join This Site' button, then they can customize the button message text for users who are logged in but not members, not logged in, or already members. Don't worry, if you have registation turned off, they won't see the 'register' button.
+In addition, if you have registration turned on, each site can chose to use 'Per Site Registration,' which will allow them to create a page on their site just for registrations and signups. To display the signup code, just put <code>[join-my-multisite]</code> on the page.
 
 * [Plugin Site](http://halfelf.org/plugins/sitewide-comment-control/)
 * [Donate](https://www.wepay.com/donations/halfelf-wp)
 
 ==Changelog==
 
+= 1.1 =
+12 October, 2012 by Ipstenu
+
+* Added in a per-site registration page option.
+
 =  1.0 =
-* 07 October, 2012 by Ipstenu
+07 October, 2012 by Ipstenu
+
 * First completed version.
 
 == Installation ==
@@ -41,6 +47,7 @@ This plugin is only network activatable. Configuration is done per-site via a pa
 
 1. Menu
 1. Widget
+1. Sample per-site registration front end
 
 == Upgrade Notice ==
 
@@ -55,3 +62,7 @@ Then your non-logged in users see nothing.
 = How do I style the button? =
 
 By default it will pick up whatever style your theme has, so if it styles buttons, you'll automatically match. If you want more, the css is `input#join-site.button` to just play with the button.
+
+= How do I style the per-site registration page? =
+
+In your theme's CSS. This is basically the default WordPress signup page, just done in short-code form, so it will default to use your site's CSS anyway.

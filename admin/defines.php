@@ -25,15 +25,13 @@ define( 'JMM', true);
 
 defined('PLUGIN_DIR') || define('PLUGIN_DIR', realpath(dirname(__FILE__) . '/..'));
 
-define( 'PLUGIN_VERSION', '1.0' ); 
-
 /* 
     Widgets
 */
 
 // Registers our widget.
 function jmm_load_add_user_widgets() {
-    include_once( PLUGIN_DIR . '/widget.php');
+    include_once( PLUGIN_DIR . '/lib/widget.php');
 }
 
 // This is what controls how people get added.
@@ -41,6 +39,10 @@ function jmm_load_add_user_widgets() {
     if ($jmm_options['type'] == 1) { add_action('init','jmm_joinsite'); }
     if ($jmm_options['type'] == 2) { add_action( 'widgets_init', 'jmm_load_add_user_widgets' ); }
 
+    // Shortcode
+    if ( get_option('users_can_register') == 1 && !is_null($jmm_options['perpage']) && $jmm_options['perpage'] != "XXXXXX"  ) {
+        include_once( PLUGIN_DIR . '/lib/shortcode.php');
+    }
 
 // The Help Screen
 function jmm_plugin_help() {
@@ -54,9 +56,3 @@ add_filter('plugin_row_meta', array('JMM', 'donate_link'), 10, 2);
 add_action('admin_menu', array('JMM', 'add_settings_page'));
 add_action('jmm_joinsite', array('JMM', 'join_site'));
 add_action('init', array('JMM', 'init'));
-
-// WP-CLI - Maybe...
-
-//if ( defined('WP_CLI') && WP_CLI ) {
-//	include( PLUGIN_DIR . '/lib/wp-cli.php' );
-//}

@@ -42,6 +42,7 @@ class jmm_JMM_Widget extends WP_Widget {
 		$notmember = $instance['notmember'];
 		$member = $instance['member'];
 		$welcome = $instance['welcome'];
+		$jmm_options = get_option( 'helfjmm_options' );
 		global $current_user, $blog_id;
    		
 		/* Before widget (defined by themes). */
@@ -59,12 +60,20 @@ class jmm_JMM_Widget extends WP_Widget {
                 if( !is_user_logged_in() ) {
                     if ( get_option('users_can_register') == 1 ) {
                          // If user isn't logged in but we allow for registration....
-                        echo '<form action="/wp-signup.php" method="post" id="notmember">';
+                         
+                        // IF we have a custom URL, use it, else send to /wp-signup.php
+                        if ( !is_null($jmm_options['perpage']) && $jmm_options['perpage'] != "XXXXXX"  )
+                            {$goto = get_permalink($jmm_options['perpage']); }
+                        else
+                            {$goto = '/wp-signup.php';}
+                        
+                        // Here is our form
+                        echo '<form action="'.$goto.'" method="post" id="notmember">';
                         echo '<input type="hidden" name="action" value="jmm-join-site">';
                         echo '<input type="submit" value="'.$notregistered.'" name="join-site" id="join-site" class="button">';
                         echo '</form>';
-                        // If we don't allow registration, we show nothing.
                     }
+                    // If we don't allow registration, we show nothing. On to the next one!
                 } elseif( !is_user_member_of_blog() ) {
                     // If user IS logged in, then let's invite them to play.
                     echo '<form action="?jmm-join-site" method="post" id="notmember">';
