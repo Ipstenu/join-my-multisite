@@ -39,10 +39,8 @@ function jmm_load_add_user_widgets() {
     if ($jmm_options['type'] == 1) { add_action('init','jmm_joinsite'); }
     if ($jmm_options['type'] == 2) { add_action( 'widgets_init', 'jmm_load_add_user_widgets' ); }
 
-    // Shortcode
-    if ( get_option('users_can_register') == 1 && !is_null($jmm_options['perpage']) && $jmm_options['perpage'] != "XXXXXX"  ) {
-        include_once( PLUGIN_DIR . '/lib/shortcode.php');
-    }
+// Shortcode
+include_once( PLUGIN_DIR . '/lib/shortcode.php');
 
 // The Help Screen
 function jmm_plugin_help() {

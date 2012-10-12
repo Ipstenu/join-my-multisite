@@ -57,7 +57,9 @@ None yet.
 
 = What happens if the network doesn't allow registrations? =
 
-Then your non-logged in users see nothing.
+If registration is turned off, the widget won't display anything for logged-out users.
+
+The <code>[join-my-multisite]</code> shortcode will display a notice that registration is unavailable.
 
 = How do I style the button? =
 
@@ -65,4 +67,10 @@ By default it will pick up whatever style your theme has, so if it styles button
 
 = How do I style the per-site registration page? =
 
-In your theme's CSS. This is basically the default WordPress signup page, just done in short-code form, so it will default to use your site's CSS anyway.
+In your theme's CSS. This is basically the default WordPress signup page, just done in short-code form, so it will default to use your site's CSS anyway. The css falls under `.mu_register` so you can override it in your theme.
+
+= Can users sign up for a blog as well as an account? =
+
+No. 
+
+That's such a massive network thing, the tinfoil hat in me didn't want to do it. You could fiddle with the signup page code, if you wanted, but I don't plan to support it.
