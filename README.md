@@ -1,9 +1,21 @@
 # Join My Multisite #
+
+Welcome to the GitHub development site for Join My Multisite.
+
+The version here is actually 1.1 right now, and it has a new addition:
+
+* Per Site Registration
+
+What? You thought it did that? It did, but now if you have network registration turned on, each site can chose to use 'Per Site Registration,' which will allow them to create a page on their site just for registrations and signups. To display the signup code, just put <code>[join-my-multisite]</code> on the page.
+
+Please test and let me know how it works!
+
+## README ##
 **Contributors:** Ipstenu  
 **Tags:** multisite, wpmu, registration, users  
 **Requires at least:** 3.4  
 **Tested up to:** 3.5  
-**Stable tag:** 1.0  
+**Stable tag:** 1.0
 **Donate link:** https://www.wepay.com/donations/halfelf-wp  
 
 Allow site admins to automatically add existing users to their site, or let users decide at the click a button.
