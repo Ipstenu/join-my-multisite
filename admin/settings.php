@@ -21,7 +21,21 @@ if (!defined('ABSPATH')) {
     die();
 }
  
-    // Register and define the settings
+// In lieu of options.php....
+if( $_POST['action'] == 'update' ) {
+
+    $new_options = get_option( 'helfjmm_options' );
+        $new_options['type'] = $_POST['jmm_type']; 
+        $new_options['role'] = $_POST['jmm_role'];
+        $new_options['persite'] = $_POST['jmm_persite']; 
+        $new_options['perpage'] = $_POST['jmm_perpage'];
+    update_option('helfjmm_options', $new_options);
+    update_option( 'default_user_role', $new_options['role']);
+
+    // Echo 
+    ?><div id='message' class='updated fade'><p><strong><?php _e('Options Updated!', 'helfjmm'); ?></strong></p></div><?php
+}
+
 ?>
     <div class="wrap">
         <div id="icon-users" class="icon32"><br></div>
@@ -31,7 +45,7 @@ if (!defined('ABSPATH')) {
         $jmm_options = get_option( 'helfjmm_options' );    
         ?>
     
-        <form method="post" action="options.php">
+        <form method="post" action="">
             <input type="hidden" name="action" value="update" />
             <input type="hidden" name="page_options" value="helfjmm_options" />
             <?php wp_nonce_field('update-options'); ?>
@@ -43,9 +57,9 @@ if (!defined('ABSPATH')) {
                     <tr valign="top">
                         <th scope="row"><?php _e('Membership:', 'helfjmm'); ?></th>
                         <td><p>
-                            <input type="radio" name="helfjmm_options[type]" value="1" <?php if ($jmm_options['type'] == 1) echo 'checked="checked"'; ?>> <label for="jmm-type"><strong><?php _e('Automatic', 'helfjmm'); ?></strong> </label><br />
-                            <input type="radio" name="helfjmm_options[type]" value="2" <?php if ($jmm_options['type'] == 2) echo 'checked="checked"'; ?>> <label for="jmm-type"><strong><?php _e('Manual', 'helfjmm'); ?></strong> </label><br />
-                            <input type="radio" name="helfjmm_options[type]" value="3" <?php if ($jmm_options['type'] == 3) echo 'checked="checked"'; ?>> <label for="jmm-type"><strong><?php _e('None', 'helfjmm'); ?></strong></label>
+                            <input type="radio" name="jmm_type" value="1" <?php if ($jmm_options['type'] == 1) echo 'checked="checked"'; ?>> <label for="jmm-type"><strong><?php _e('Automatic', 'helfjmm'); ?></strong> </label><br />
+                            <input type="radio" name="jmm_type" value="2" <?php if ($jmm_options['type'] == 2) echo 'checked="checked"'; ?>> <label for="jmm-type"><strong><?php _e('Manual', 'helfjmm'); ?></strong> </label><br />
+                            <input type="radio" name="jmm_type" value="3" <?php if ($jmm_options['type'] == 3) echo 'checked="checked"'; ?>> <label for="jmm-type"><strong><?php _e('None', 'helfjmm'); ?></strong></label>
                         </p></td>
                         <td><p class="description">
                         <?php _e('Auto-Add signed in users to this site when they visit.', 'helfjmm'); ?><br />
@@ -61,7 +75,7 @@ if (!defined('ABSPATH')) {
                     <tr valign="top">
                         <th scope="row"><?php _e('Registration:', 'helfjmm'); ?></th>
                         <td><p>
-                            <input type="checkbox" name="helfjmm_options[persite]" value="1" <?php if ($jmm_options['persite'] == 1) echo 'checked="checked"'; ?>> <label for="jmm-persite"><?php _e('Per-Site Registration.', 'helfjmm'); ?></label>
+                            <input type="checkbox" name="jmm_persite" value="1" <?php if ($jmm_options['persite'] == 1) echo 'checked="checked"'; ?>> <label for="jmm-persite"><?php _e('Per-Site Registration.', 'helfjmm'); ?></label>
                         </p></td>
                         <td><p class="description"><?php _e('Check this box if you want to use a shortcode to customize per-site registration. If unchecked, registrations will be sent to the network registration page.', 'helfjmm'); ?></p></td>
                     </tr>
@@ -71,7 +85,7 @@ if (!defined('ABSPATH')) {
                     <tr valign="top">
                         <th scope="row"></th>
                         <td>
-                        <p><select name="helfjmm_options[perpage]" id='jmm_options[perpage]'>
+                        <p><select name="jmm_perpage" id='jmm_options[perpage]'>
                             <option value="0"><?php _e( '&mdash; Select &mdash;' ); ?></option>
                             <?php if ( current_user_can( 'create_posts', 'page' ) ) : ?>
                             <option value="new" id="new-page"><?php _e( '&mdash; Add new page &mdash;' ); ?></option>
@@ -92,10 +106,10 @@ if (!defined('ABSPATH')) {
                     
                     ?>
                     
-                    <tr>
+                    <tr> 
                         <th scope="row"><?php _e('New User Default Role:', 'helfjmm'); ?></th>
                         <td>
-                        <select name="helfjmm_options[role]" id="<?php echo $jmm_options['role']; ?>">
+                        <select name="jmm_role" id="<?php echo $jmm_options['role']; ?>">
                         <option value="none"><?php _e( '-- None --', 'helfjmm' )?></option>
                         <?php wp_dropdown_roles( get_option( 'default_user_role' ) ); ?>
                         </select>
@@ -108,4 +122,3 @@ if (!defined('ABSPATH')) {
             <p class="submit"><input class='button-primary' type='Submit' name='update' value='<?php _e("Update Options", 'helfjmm'); ?>' id='submitbutton' /></p>
     
         </form>
-

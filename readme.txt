@@ -3,7 +3,7 @@ Contributors: Ipstenu
 Tags: multisite, wpmu, registration, users
 Requires at least: 3.4
 Tested up to: 3.5
-Stable tag: 1.0
+Stable tag: 1.1
 Donate link: https://www.wepay.com/donations/halfelf-wp
 
 Allow site admins to automatically add existing users to their site, or let users decide at the click a button.
@@ -24,7 +24,7 @@ If they decide to auto-add, then any time a logged in user visits a site, they w
 
 In addition, if you have registration turned on, each site can chose to use 'Per Site Registration,' which will allow them to create a page on their site just for registrations and signups. To display the signup code, just put <code>[join-my-multisite]</code> on the page.
 
-* [Plugin Site](http://halfelf.org/plugins/sitewide-comment-control/)
+* [Plugin Site](http://halfelf.org/plugins/join-my-multisite/)
 * [Donate](https://www.wepay.com/donations/halfelf-wp)
 
 ==Changelog==
@@ -33,6 +33,7 @@ In addition, if you have registration turned on, each site can chose to use 'Per
 12 October, 2012 by Ipstenu
 
 * Added in a per-site registration page option.
+* Corrected bug where non-network admins couldn't make changes
 
 =  1.0 =
 07 October, 2012 by Ipstenu
