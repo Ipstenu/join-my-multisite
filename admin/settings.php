@@ -87,9 +87,6 @@ if( $_POST['action'] == 'update' ) {
                         <td>
                         <p><select name="jmm_perpage" id='jmm_options[perpage]'>
                             <option value="0"><?php _e( '&mdash; Select &mdash;' ); ?></option>
-                            <?php if ( current_user_can( 'create_posts', 'page' ) ) : ?>
-                            <option value="new" id="new-page"><?php _e( '&mdash; Add new page &mdash;' ); ?></option>
-                            <?php endif; ?>
                             <?php echo walk_page_dropdown_tree( $all_pages, 0, array( 'depth' => 1,'selected' => $jmm_options['perpage'] ) ); ?>
                         </select></p>
                         </td>
