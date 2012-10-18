@@ -44,7 +44,8 @@ if ($screen->id == 'users_page_jmm') {
         '<h4>' . __('Links:', 'jmm') .'</h4>' .
         '<p><a href="http://wordpress.org/support/plugin/join-my-multisite">' . __('Support', 'jmm' ) . '</a></p>' .
         '<p><a href="http://codex.wordpress.org/Roles_and_Capabilities">' . __('WordPress Roles & Capabilities', 'jmm' ) . '</a></p>' .
-        '<p><a href="http://wordpress.org/extend/plugins/multisite-user-management/">' . __('Plugin: Multisite User Management', 'jmm' ) . '</a></p>'
+        '<p><a href="http://wordpress.org/extend/plugins/multisite-user-management/">' . __('Plugin: Multisite User Management', 'jmm' ) . '</a></p>' .
+        '<p><a href="http://justintadlock.com/archives/2012/10/16/how-i-run-a-membership-site">' . __('Advice On Running a Membership Site', 'jmm' ) . '</a></p>'
         );
 
     // Options
