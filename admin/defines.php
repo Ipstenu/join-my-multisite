@@ -36,7 +36,7 @@ function jmm_load_add_user_widgets() {
 
 // This is what controls how people get added.
     $jmm_options = get_option( 'helfjmm_options' );
-    if ($jmm_options['type'] == 1) { add_action('init','jmm_joinsite'); }
+    if ($jmm_options['type'] == 1) { add_action('init', array('JMM','join_site')); }
     if ($jmm_options['type'] == 2) { add_action( 'widgets_init', 'jmm_load_add_user_widgets' ); }
 
 // Shortcode

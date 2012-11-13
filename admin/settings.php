@@ -69,13 +69,15 @@ if( $_POST['action'] == 'update' ) {
                     </tr>
                     
                     <?php
+                    // Registration Options:
+                    
                     if ( get_option('users_can_register') == 1 ):
                     ?>
                     
                     <tr valign="top">
                         <th scope="row"><?php _e('Registration:', 'helfjmm'); ?></th>
                         <td><p>
-                            <input type="checkbox" name="jmm_persite" value="1" <?php if ($jmm_options['persite'] == 1) echo 'checked="checked"'; ?>> <label for="jmm-persite"><?php _e('Per-Site Registration.', 'helfjmm'); ?></label>
+                            <input type="checkbox" name="jmm_persite" value="1" <?php if ($jmm_options['persite'] == 1) echo 'checked="checked"'; ?>> <label for="jmm-persite"><?php _e('Per-Site', 'helfjmm'); ?></label>
                         </p></td>
                         <td><p class="description"><?php _e('Check this box if you want to use a shortcode to customize per-site registration. If unchecked, registrations will be sent to the network registration page.', 'helfjmm'); ?></p></td>
                     </tr>
@@ -91,18 +93,14 @@ if( $_POST['action'] == 'update' ) {
                         </select></p>
                         </td>
                         
-                        <td><p class="description"><?php _e('Non-logged in users will be redirected to the perpage you select from the dropdowns. Only top-level pages may be used. Use the following shortcode to display the login form:', 'helfjmm'); ?><br />
+                        <td><p class="description"><?php _e('Users who are not logged in will be redirected to the perpage you select from the dropdowns. Only top-level pages may be used. Use the following shortcode to display the login form:', 'helfjmm'); ?><br />
                             <code>[join-my-multisite]</code>
                         </td>
                     </tr>
-                    <?php } ?>
-                    
-                    <?php 
+                    <?php } 
                     
                     endif; // End check for if registration is on for the network.
-                    
                     ?>
-                    
                     <tr> 
                         <th scope="row"><?php _e('New User Default Role:', 'helfjmm'); ?></th>
                         <td>

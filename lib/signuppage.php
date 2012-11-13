@@ -87,7 +87,7 @@ function signup_user($user_name = '', $user_email = '', $errors = '') {
 	$user_email = $filtered_results['user_email'];
 	$errors = $filtered_results['errors'];
 	
-	$blog_details = get_blog_details($blog_id);
+	$blog_details = get_blog_details($current_site->blog_id);
 
 	?>
 

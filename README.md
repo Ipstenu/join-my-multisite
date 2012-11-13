@@ -41,6 +41,13 @@ In addition, if you have registration turned on, each site can chose to use 'Per
 
 ##Changelog##
 
+### 1.2 ###
+
+13 November, 2012 by Ipstenu
+
+* Fixed issues as noted by [dokkaebi](http://wordpress.org/support/topic/problems-and-workarounds-using-v-11-on-wordpress-342)
+* Added in option for login form
+
 ### 1.1 ###
 12 October, 2012 by Ipstenu
 

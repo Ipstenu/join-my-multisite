@@ -8,7 +8,7 @@
     the Free Software Foundation, either version 2 of the License, or
     (at your option) any later version.
 
-    Join My Multisite is distributed in the hope that it will be useful,
+    Sitewide Comment Control is distributed in the hope that it will be useful,
     but WITHOUT ANY WARRANTY; without even the implied warranty of
     MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
     GNU General Public License for more details.
@@ -21,10 +21,7 @@ if (!defined('ABSPATH')) {
     die();
 }
 
-// Register the widget
-register_widget( 'jmm_JMM_Widget' );
-
-// This is the widget!
+// Basic JMM Widget
 class jmm_JMM_Widget extends WP_Widget {
 
     function jmm_JMM_Widget() {
@@ -42,16 +39,17 @@ class jmm_JMM_Widget extends WP_Widget {
 		$notmember = $instance['notmember'];
 		$member = $instance['member'];
 		$welcome = $instance['welcome'];
+		$show_form = $instance['show_form'];
 		$jmm_options = get_option( 'helfjmm_options' );
-		global $current_user, $blog_id;
-   		
+		global $current_user, $blog_id, $user_login;
+
 		/* Before widget (defined by themes). */
 		echo $before_widget;
 
 		/* Title of widget (before and after defined by themes). */
 		if ( $title )
 			echo $before_title . $title . $after_title;
-
+			
 			if( isset($_POST['jmm-join-site']) || isset($_POST['join-site']) ){
                 // This is the magic sauce.
                 do_action('jmm_joinsite', array('JMM', 'join_site'));
@@ -72,6 +70,13 @@ class jmm_JMM_Widget extends WP_Widget {
                         echo '<input type="hidden" name="action" value="jmm-join-site">';
                         echo '<input type="submit" value="'.$notregistered.'" name="join-site" id="join-site" class="button">';
                         echo '</form>';
+                        
+                        // Do we show the inline login form?
+                        if ( $show_form == 'on' ) {
+                            echo '<br /><h3 class="widget-title">'. __("Log in") .'</h3>';
+                            wp_login_form(array( 'value_remember' => 1));                          
+                        }
+                        
                     }
                     // If we don't allow registration, we show nothing. On to the next one!
                 } elseif( !is_user_member_of_blog() ) {
@@ -95,34 +100,52 @@ class jmm_JMM_Widget extends WP_Widget {
 
 		/* Strip tags (if needed) and update the widget settings. */
 		$instance['title'] = strip_tags( $new_instance['title'] );
+
 		$instance['notreg'] = strip_tags( $new_instance['notreg'] );
 		$instance['notmember'] = strip_tags( $new_instance['notmember'] );
+
 		$instance['member'] = strip_tags( $new_instance['member'] );
 		$instance['welcome'] = strip_tags( $new_instance['welcome'] );
+        $instance['loginform'] = strip_tags( $new_instance['loginform'] );
 
+        $instance['show_form'] = $new_instance['show_form'];      
 		return $instance;
 	}
 
 	function form( $instance ) {
 
 		/* Set up some default widget settings. */
-		$defaults = array( 'title' => 'Join up!', 'notreg' => 'Signup for an account!', 'notmember' => 'Join this site!', 'member' => 'Nice to see you again.', 'welcome' => 'Hi, new member!' );
+		$defaults = array( 'title' => 'Welcome to My Site', 'notreg' => 'Register for an account', 'notmember' => 'Join this site', 'member' => 'Nice to see you again.', 'welcome' => 'Hi, new member.', 'loginform' => 'Log in', 'show_form' => 0 );
 		$instance = wp_parse_args( (array) $instance, $defaults ); ?>
 
 		<p>
-			<label for="<?php echo $this->get_field_id( 'title' ); ?>"><strong><?php _e( 'Title:', 'helfjmm' )?></strong></label>
+			<label for="<?php echo $this->get_field_id( 'title' ); ?>"><?php _e( 'Title:', 'helfjmm' )?></label>
 			<input id="<?php echo $this->get_field_id( 'title' ); ?>" name="<?php echo $this->get_field_name( 'title' ); ?>" value="<?php echo $instance['title']; ?>" style="width:90%;" />
 		</p>
 
+		<hr>
+
+		<p><strong><?php _e( 'Button Text', 'helfjmm' )?></strong></label>
+
+        <?php if (get_option('users_can_register')) { ?>
 		<p>
 			<label for="<?php echo $this->get_field_id( 'notreg' ); ?>"><?php _e( 'Not registered on the network:', 'helfjmm' )?></label>
 			<input id="<?php echo $this->get_field_id( 'notreg' ); ?>" name="<?php echo $this->get_field_name( 'notreg' ); ?>" value="<?php echo $instance['notreg']; ?>" style="width:90%;" />
 		</p>
-
+		<p>
+            <input class="checkbox" type="checkbox" <?php checked( $instance['show_form'], 'on' ); ?> id="<?php echo $this->get_field_id( 'show_form' ); ?>" name="<?php echo $this->get_field_name( 'show_form' ); ?>" /> 
+            <label for="<?php echo $this->get_field_id( 'show_form' ); ?>"><?php _e( 'Show in-line login form.', 'helfjmm' )?></label>
+        </p>
+        
+        <?php } ?>
 		<p>
 			<label for="<?php echo $this->get_field_id( 'notmember' ); ?>"><?php _e( 'Not a member of this site:', 'helfjmm' )?></label>
 			<input id="<?php echo $this->get_field_id( 'notmember' ); ?>" name="<?php echo $this->get_field_name( 'notmember' ); ?>" value="<?php echo $instance['notmember']; ?>" style="width:90%;" />
 		</p>
+
+		<hr>
+
+		<p><strong><?php _e( 'Welcome Message Text', 'helfjmm' )?></strong></label>
 
 		<p>
 			<label for="<?php echo $this->get_field_id( 'member' ); ?>"><?php _e( 'Existing members:', 'helfjmm' )?></label>
@@ -130,9 +153,52 @@ class jmm_JMM_Widget extends WP_Widget {
 		</p>
 
 		<p>
-			<label for="<?php echo $this->get_field_id( 'welcome' ); ?>"><?php _e( 'Welcome to new member:', 'helfjmm' )?></label>
+			<label for="<?php echo $this->get_field_id( 'welcome' ); ?>"><?php _e( 'New member (shown on signup):', 'helfjmm' )?></label>
 			<input id="<?php echo $this->get_field_id( 'welcome' ); ?>" name="<?php echo $this->get_field_name( 'welcome' ); ?>" value="<?php echo $instance['welcome']; ?>" style="width:90%;" />
 		</p>
+
 <?php 
 		}
+}
+
+// Register the widget
+register_widget( 'jmm_JMM_Widget' );
+
+function jmm_front_end_login_fail( $username ) {
+    $referrer = $_SERVER['HTTP_REFERER'];
+     
+    // if there's a valid referrer, and it's not the default log-in screen
+    if ( !empty($referrer) && !strstr($referrer,'wp-login') && !strstr($referrer,'wp-admin') ) {
+        wp_redirect(home_url() . '/?jmm=failed' ); 
+        exit;
+     }
+         
+        if ( !empty($referrer) && !strstr($referrer,'wp-login') && !strstr($referrer,'wp-admin') ) {
+            if ( !strstr($referrer,'jmm=failed') ) { // don’t append twice
+                if(!strstr($referrer, '?')){
+                    wp_redirect( $referrer . '?jmm=failed' ); 
+                } else {
+                    wp_redirect( $referrer . '&jmm=failed' ); 
+                }
+            } else {
+                wp_redirect( $referrer );
+            }
+        exit;
+        }
+
+    // Filtering wp_authenticate becuase it's an idiot and wp_login_failed doesn't think that blank fields is a fail...
+    // http://wordpress.stackexchange.com/questions/28786/action-wp-login-failed-not-working-if-only-one-field-is-filled-out
+    if( ! function_exists('wp_authenticate') ) {
+        function wp_authenticate($username, $password) {
+            $username = sanitize_user($username);
+            $password = trim($password);
+            $user = apply_filters('authenticate', null, $username, $password);
+     
+            if ( is_wp_error($user) ) {
+                do_action('wp_login_failed', $username);
+            }
+     
+            return $user;
+        }
+    }
 }
