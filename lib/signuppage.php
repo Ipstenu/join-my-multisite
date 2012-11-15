@@ -20,12 +20,6 @@
 if (!defined('ABSPATH')) {
     die();
 }
-
-$jmm_options = get_option( 'helfjmm_options' );
-    if ( !is_null($jmm_options['perpage']) && $jmm_options['perpage'] != "XXXXXX"  )
-        {$goto = get_permalink($jmm_options['perpage']); }
-    else
-        {$goto = '/wp-signup.php';}
 ?>
 	<style type="text/css">
 		.mu_register { width: 90%; margin:0 auto; }
@@ -75,6 +69,12 @@ function validate_user_form() {
 
 function signup_user($user_name = '', $user_email = '', $errors = '') {
 	global $current_site, $active_signup;
+
+	$jmm_options = get_option( 'helfjmm_options' );
+	    if ( !is_null($jmm_options['perpage']) && $jmm_options['perpage'] != "XXXXXX"  )
+	        {$goto = get_permalink($jmm_options['perpage']); }
+	    else
+	        {$goto = '/wp-signup.php';}
 
 	if ( !is_wp_error($errors) )
 		$errors = new WP_Error();
