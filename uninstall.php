@@ -31,3 +31,4 @@ $blogs = $wpdb->get_results("SELECT blog_id FROM {$wpdb->blogs}", ARRAY_A);
                 delete_option( 'helfjmm_options' );
 	        }
 	    restore_current_blog();
+}

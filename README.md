@@ -2,20 +2,14 @@
 
 Welcome to the GitHub development site for Join My Multisite.
 
-The version here is actually 1.1 right now, and it has a new addition:
-
-* Per Site Registration
-
-What? You thought it did that? It did, but now if you have network registration turned on, each site can chose to use 'Per Site Registration,' which will allow them to create a page on their site just for registrations and signups. To display the signup code, just put <code>[join-my-multisite]</code> on the page.
-
-Please test and let me know how it works!
+The version here is actually 'trunk' so use at your own risk.
 
 ## README ##
 **Contributors:** Ipstenu  
 **Tags:** multisite, wpmu, registration, users  
 **Requires at least:** 3.4  
 **Tested up to:** 3.5  
-**Stable tag:** 1.0
+**Stable tag:** 1.2
 **Donate link:** https://www.wepay.com/donations/halfelf-wp  
 
 Allow site admins to automatically add existing users to their site, or let users decide at the click a button.
@@ -29,17 +23,24 @@ By activating this plugin, you give your Site Admins the following options:
 * Auto-add users
 * Have a 'Join This Site' button in a widget
 * Keep things exactly as they are
+* Create a per site registration page
 
 It's really that simple! 
 
 If they decide to auto-add, then any time a logged in user visits a site, they will be magically added to that site. If they decide to use a 'Join This Site' button, then they can customize the button message text for users who are logged in but not members, not logged in, or already members. Don't worry, if you have registation turned off, they won't see the 'register' button.
 
-In addition, if you have registration turned on, each site can chose to use 'Per Site Registration,' which will allow them to create a page on their site just for registrations and signups. To display the signup code, just put <code>[join-my-multisite]</code> on the page.
+When you have registration turned on, each site can chose to use 'Per Site Registration,' which will allow them to create a page on their site just for registrations and signups. To display the signup code, just put <code>[join-my-multisite]</code> on the page.
 
 * [Plugin Site](http://halfelf.org/plugins/join-my-multisite/)
 * [Donate](https://www.wepay.com/donations/halfelf-wp)
 
 ##Changelog##
+
+### 1.3 ###
+
+21 November, 2012 by Ipstenu
+
+* Fixed uninstall issue
 
 ### 1.2 ###
 
