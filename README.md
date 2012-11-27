@@ -9,7 +9,7 @@ The version here is actually 'trunk' so use at your own risk.
 **Tags:** multisite, wpmu, registration, users  
 **Requires at least:** 3.4  
 **Tested up to:** 3.5  
-**Stable tag:** 1.2
+**Stable tag:** 1.3
 **Donate link:** https://www.wepay.com/donations/halfelf-wp  
 
 Allow site admins to automatically add existing users to their site, or let users decide at the click a button.
@@ -35,6 +35,13 @@ When you have registration turned on, each site can chose to use 'Per Site Regis
 * [Donate](https://www.wepay.com/donations/halfelf-wp)
 
 ##Changelog##
+
+### 1.4 ###
+
+27 November, 2012 by Ipstenu
+
+* More translation tweaks by dokkaebi
+
 
 ### 1.3 ###
 

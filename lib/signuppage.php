@@ -128,7 +128,7 @@ function validate_user_signup() {
 
 function confirm_user_signup($user_name, $user_email) {
 	?>
-	<h2><?php printf( __( '%s is your new username' ), $user_name) ?></h2>
+	<h2><?php printf( __( '%s is your new username', 'helfjmm' ), $user_name) ?></h2>
 	<p><?php _e( 'But, before you can start using your new username, <strong>you must activate it</strong>.', 'helfjmm' ) ?></p>
 	<p><?php printf( __( 'Check your inbox at <strong>%s</strong> and click the link given.', 'helfjmm' ), $user_email ); ?></p>
 	<p><?php _e( 'If you do not activate your username within two days, you will have to sign up again.', 'helfjmm' ); ?></p>

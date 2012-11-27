@@ -30,6 +30,11 @@ When you have registration turned on, each site can chose to use 'Per Site Regis
 
 ==Changelog==
 
+= 1.4 =
+27 November, 2012 by Ipstenu
+
+* More translation tweaks by dokkaebi
+
 = 1.3 =
 
 21 November, 2012 by Ipstenu

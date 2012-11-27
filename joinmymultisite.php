@@ -42,6 +42,7 @@ class JMM {
         	$jmm_options['perpage'] = 'XXXXXX'; // blank
         	update_option('helfjmm_options', $jmm_options);
         }
+        load_plugin_textdomain( 'helfjmm', false, dirname( plugin_basename( __FILE__ ) ) . '/languages/' );
     }
 
     // donate link on manage plugin page
