@@ -22,13 +22,13 @@ if (!defined('ABSPATH')) {
 }
  
 // In lieu of options.php....
-if( $_POST['action'] == 'update' ) {
+if( isset($_POST['action']) && $_POST['action'] == 'update' ) {
 
     $new_options = get_option( 'helfjmm_options' );
-        $new_options['type'] = $_POST['jmm_type']; 
-        $new_options['role'] = $_POST['jmm_role'];
-        $new_options['persite'] = $_POST['jmm_persite']; 
-        $new_options['perpage'] = $_POST['jmm_perpage'];
+        if (isset($_POST['jmm_type'])) $new_options['type'] = $_POST['jmm_type']; 
+        if (isset($_POST['jmm_role'])) $new_options['role'] = $_POST['jmm_role'];
+        if (isset($_POST['jmm_persite'])) $new_options['persite'] = $_POST['jmm_persite']; 
+        if (isset($_POST['jmm_perpage'])) $new_options['perpage'] = $_POST['jmm_perpage'];
     update_option('helfjmm_options', $new_options);
     update_option( 'default_user_role', $new_options['role']);
 
