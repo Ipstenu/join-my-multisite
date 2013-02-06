@@ -25,6 +25,15 @@ define( 'JMM', true);
 
 defined('PLUGIN_DIR') || define('PLUGIN_DIR', realpath(dirname(__FILE__) . '/..'));
 
+if (!get_option( 'helfjmm_options' )) {
+    $jmm_options = get_option( 'helfjmm_options' );
+        if ( !isset($jmm_options['type']) ) $jmm_options['type'] = '3';
+        if ( !isset($jmm_options['role']) ) $jmm_options['role'] = 'subscriber';
+        if ( !isset($jmm_options['persite']) ) $jmm_options['persite'] = '0';
+        if ( !isset($jmm_options['perpage']) ) $jmm_options['perpage'] = 'XXXXXX'; // blank
+    update_option('helfjmm_options', $jmm_options);
+}
+
 /* 
     Widgets
 */
