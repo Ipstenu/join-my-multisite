@@ -3,7 +3,7 @@
 Plugin Name: Join My Multisite
 Plugin URI: http://halfelf.org/plugins/join-my-multisite/
 Description: Allow logged in users to add themselves to sites (or auto-add them to all sites).
-Version: 1.4.1
+Version: 1.5
 Author: Mika Epstein (Ipstenu)
 Author URI: http://ipstenu.org/
 Network: true
@@ -32,7 +32,7 @@ require_once dirname(__FILE__) . '/admin/defines.php';
 class JMM {
 
     function init() {
-        load_plugin_textdomain( 'helfjmm', false, dirname( plugin_basename( __FILE__ ) ) . '/languages/' );
+        load_plugin_textdomain( 'helfjmm', false, dirname( plugin_basename( __FILE__ ) ) . '/i18n/' );
     }
 
     // donate link on manage plugin page
@@ -46,7 +46,7 @@ class JMM {
 
      // Sets up the settings page
 	function add_settings_page() {
-        load_plugin_textdomain( 'helfjmm', false, dirname( plugin_basename( __FILE__ ) ) . '/languages/' );
+        load_plugin_textdomain( 'helfjmm', false, dirname( plugin_basename( __FILE__ ) ) . '/i18n/' );
         global $jmm_settings_page;
         $jmm_settings_page = add_users_page(__('Join My Multisite Settings'), __('Join My Multisite'), 'manage_options', 'jmm', array('JMM', 'settings_page'));
     	}

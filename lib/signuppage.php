@@ -101,7 +101,7 @@ function signup_user($user_name = '', $user_email = '', $errors = '') {
 			<input id="signupblog" type="hidden" name="signup_for" value="user" />
 		</p>
 
-		<p class="submit"><input type="submit" name="submit" class="submit" value="<?php esc_attr_e('Sign Up', 'helfjmm') ?>" /></p>
+		<p class="submit"><input type="submit" name="submit" class="submit" value="<?php esc_attr_e('Signup', 'helfjmm') ?>" /></p>
 	</form>
 	<?php
 }

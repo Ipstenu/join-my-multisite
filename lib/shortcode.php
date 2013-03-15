@@ -35,9 +35,9 @@ function jmm_add_shortcodes() {
 // [join-my-multisite] - no params
 
 function jmm_shortcode_func( $atts, $content = null ) {
-
+    global $wp_query;
     add_action( 'wp_head', 'wp_no_robots' );
-    $wp_query->is_404 = false;    
+    $wp_query->is_404 = false;
     include_once( PLUGIN_DIR. '/lib/signuppage.php');
 
 }

@@ -22,7 +22,7 @@ if (!defined('ABSPATH')) {
 }
 
 define( 'JMM', true);
-
+if ( !defined('helfjmm')) {define('helfjmm','helfjmm');} // Translation
 defined('PLUGIN_DIR') || define('PLUGIN_DIR', realpath(dirname(__FILE__) . '/..'));
 
 if (!get_option( 'helfjmm_options' )) {
