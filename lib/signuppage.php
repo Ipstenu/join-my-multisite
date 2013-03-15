@@ -86,20 +86,15 @@ function signup_user($user_name = '', $user_email = '', $errors = '') {
 	$user_name = $filtered_results['user_name'];
 	$user_email = $filtered_results['user_email'];
 	$errors = $filtered_results['errors'];
-	
-	$blog_details = get_blog_details($current_site->blog_id);
-
 	?>
 
-	<h2><?php printf( __( 'Get a user account on %s in seconds', 'helfjmm' ), $blog_details->blogname ) ?></h2>
+	<h2><?php printf( __( 'Create your account on %s', 'helfjmm' ), $current_site->site_name ) ?></h2>
 	<form id="setupform" method="post" action="<?php echo $goto; ?>">
 		<input type="hidden" name="stage" value="validate-user-signup" />
 		<?php do_action( 'signup_hidden_fields' ); ?>
 		<?php show_user_form($user_name, $user_email, $errors); ?>
 
-		<p>
-			<input id="signupblog" type="hidden" name="signup_for" value="user" />
-		</p>
+		<p><input id="signupblog" type="hidden" name="signup_for" value="user" /></p>
 
 		<p class="submit"><input type="submit" name="submit" class="submit" value="<?php esc_attr_e('Signup', 'helfjmm') ?>" /></p>
 	</form>
@@ -129,7 +124,7 @@ function validate_user_signup() {
 function confirm_user_signup($user_name, $user_email) {
 	?>
 	<h2><?php printf( __( '%s is your new username', 'helfjmm' ), $user_name) ?></h2>
-	<p><?php _e( 'But, before you can start using your new username, <strong>you must activate it</strong>.', 'helfjmm' ) ?></p>
+	<p><?php _e( 'Before you can start using your new username, <strong>you must activate it</strong>.', 'helfjmm' ) ?></p>
 	<p><?php printf( __( 'Check your inbox at <strong>%s</strong> and click the link given.', 'helfjmm' ), $user_email ); ?></p>
 	<p><?php _e( 'If you do not activate your username within two days, you will have to sign up again.', 'helfjmm' ); ?></p>
 	<?php
@@ -150,7 +145,7 @@ $i18n_signup['blog'] = _x('blog', 'Multisite active signup type');
 $i18n_signup['user'] = _x('user', 'Multisite active signup type');
 
 if ( is_super_admin() )
-	echo '<div class="mu_alert">' . sprintf( __( 'Greetings Site Administrator! You are currently allowing &#8220;%s&#8221; registrations. To change or disable registration go to your <a href="%s">Options page</a>.', 'helfjmm' ), $i18n_signup[$active_signup], esc_url( network_admin_url( 'settings.php' ) ) ) . '</div>';
+	echo '<div class="mu_alert">' . sprintf( __( 'Greetings Network Administrator! You are currently allowing &#8220;%s&#8221; registrations. To change or disable registration go to your <a href="%s">Options page</a>.', 'helfjmm' ), $i18n_signup[$active_signup], esc_url( network_admin_url( 'settings.php' ) ) ) . '</div>';
 
 $newblogname = isset($_GET['new']) ? strtolower(preg_replace('/^-|-$|[^-a-zA-Z0-9]/', '', $_GET['new'])) : null;
 
