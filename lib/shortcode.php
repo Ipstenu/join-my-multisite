@@ -22,9 +22,19 @@ if (!defined('ABSPATH')) {
 }
 
 /* The registration magic */
-function jmm_activate_user( $user_id, $password, $meta )
-  {add_user_to_blog( $blog_id, $user_id, get_option( 'default_user_role' ) );}
-  add_action( 'wpmu_activate_user', 'jmm_activate_user', 10, 3 );
+function jmm_activate_user( $user_id, $password, $meta ) {
+    add_user_to_blog( $blog_id, $user_id, get_option( 'default_user_role' ) );
+}
+add_action( 'wpmu_activate_user', 'jmm_activate_user', 10, 3 );
+
+// Redirect wp-signup.php
+function jmm_signup_location($val) {
+	$jmm_options = get_option( 'helfjmm_options' );
+	if ( !is_null($jmm_options['perpage']) && $jmm_options['perpage'] != "XXXXXX"  )
+		{ return get_permalink($jmm_options['perpage']); }
+	return $val;
+}
+//add_filter('wp_signup_location', 'jmm_signup_location');
 
 /* Register shortcodes */
 add_action( 'init', 'jmm_add_shortcodes' );
@@ -33,11 +43,21 @@ function jmm_add_shortcodes() {
 }
 
 // [join-my-multisite] - no params
-
 function jmm_shortcode_func( $atts, $content = null ) {
     global $wp_query;
     add_action( 'wp_head', 'wp_no_robots' );
     $wp_query->is_404 = false;
     include_once( PLUGIN_DIR. '/lib/signuppage.php');
+}
 
+// [join-this-site] - no params
+function jmm_shortcode_thissite_func( $atts, $content = null ) {
+    $jmm_options = get_option( 'widget_helf-add-user-widget' );
+    
+?>
+    <form action="?jmm-join-site" method="post" id="notmember">
+    <input type="hidden" name="action" value="jmm-join-site">
+    <input type="submit" value="<?php $jmm_options['notmember'] ?>" name="join-site" id="join-site" class="button">
+    </form>
+<?php
 }
