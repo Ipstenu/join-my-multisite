@@ -30,6 +30,12 @@ When you have registration turned on, each site can chose to use 'Per Site Regis
 
 ==Changelog==
 
+= 1.5.1 =
+XX March, 2013
+
+* Added before_signup_frorm()
+* Redirect wp-signup to the page you defined.
+
 = 1.5 = 
 15 March, 2013
 

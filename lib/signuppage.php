@@ -37,6 +37,7 @@ if (!defined('ABSPATH')) {
 		.mu_register .mu_alert { font-weight:700; padding:10px; color:#333333; background:#ffffe0; border:1px solid #e6db55; }
 	</style>
 
+<?php do_action( 'before_signup_form' ); ?>
 <div id="content" class="widecolumn">
 <div class="mu_register">
 <?php

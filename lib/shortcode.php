@@ -34,7 +34,7 @@ function jmm_signup_location($val) {
 		{ return get_permalink($jmm_options['perpage']); }
 	return $val;
 }
-//add_filter('wp_signup_location', 'jmm_signup_location');
+add_filter('wp_signup_location', 'jmm_signup_location');
 
 /* Register shortcodes */
 add_action( 'init', 'jmm_add_shortcodes' );
