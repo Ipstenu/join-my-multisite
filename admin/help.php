@@ -56,11 +56,11 @@ if ($screen->id == 'users_page_jmm') {
 		'<h3>' . __('Membership Options', 'helfjmm') .'</h3>' .
 		'<ul> 
 		      <li><strong>'. __('Auto: ', 'helfjmm') . '</strong>' . __('Auto-Add signed in users to this site when they visit.', 'helfjmm') . '</li>
-		      <li><strong>'. __('Manual: ', 'helfjmm') . '</strong>' . __('Allow signed in users to join via a widget.', 'helfjmm') . '</li>
+		      <li><strong>'. __('Manual: ', 'helfjmm') . '</strong>' . __('Allow signed in users to join via a widget or the shortcode <code>[join-this-site]</code>.', 'helfjmm') . '</li>
 		      <li><strong>'. __('None: ', 'helfjmm') . '</strong>' . __('Don\'t allow new users to add themselves this site, add them manually.', 'helfjmm') . '</li>
         </ul>' .
 		'<p>' . __( 'If don\'t want anything to change, then you can leave this plugin alone (i.e. on "None").', 'helfjmm' ) . '</p>' .
-		'<p>' . __( 'Regardless of membership options, you can still use the Per Site Registration.', 'helfjmm' ) . '</p>' 
+		'<p>' . __( 'Regardless of membership options, you can still use the Per Site Registration page.', 'helfjmm' ) . '</p>' 
 		));
 		
     // Options
@@ -77,12 +77,12 @@ if ($screen->id == 'users_page_jmm') {
 		'id'      => 'jmm-menu-shortcode-options',
 		'title'   => __('Per Site Registration', 'helfjmm'),
 		'content' =>
-		'<p><em>' . __('This feature is only available if your network admin has allowed regisgrations.', 'helfjmm') .'</em></p>' .
+		'<p><em>' . __('This feature is only available if your network admin has allowed registrations.', 'helfjmm') .'</em></p>' .
 		'<h3>' . __('Setup', 'helfjmm') .'</h3>' .
-		'<p>' . __('Create a top-level page (i.e. domain.com/pagename/) and insert the following shortcode:', 'helfjmm') .'</h3>' .
+		'<p>' . __('Create a top-level page (i.e. domain.com/pagename/) and insert the following shortcode:', 'helfjmm') .'</p>' .
 		'<p><code>[join-my-multisite]</code></p>' .
 		'<p>' . __( 'Come back to this page and check the box to turn allow for per-site registration. You then select a page from the drop-down list of pages.', 'helfjmm' ) . '</p>' .
-		'<h3>' . __('If used with the \'Manual\' (i.e. widget) membership option, non-logged in users will see a button to direct them to your registration page.', 'helfjmm') .'</h3>' 
+		'<p>' . __('If used with the \'Manual\' (i.e. widget) membership option, non-logged in users will see a button to direct them to your registration page.', 'helfjmm') .'</p>' 
 	  ));
 }
 

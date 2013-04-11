@@ -34,12 +34,13 @@ function jmm_signup_location($val) {
 		{ return get_permalink($jmm_options['perpage']); }
 	return $val;
 }
-//add_filter('wp_signup_location', 'jmm_signup_location');
+add_filter('wp_signup_location', 'jmm_signup_location');
 
 /* Register shortcodes */
 add_action( 'init', 'jmm_add_shortcodes' );
 function jmm_add_shortcodes() {
     add_shortcode( 'join-my-multisite', 'jmm_shortcode_func' );
+    add_shortcode( 'join-this-site', 'jmm_shortcode_thissite_func' );
 }
 
 // [join-my-multisite] - no params
@@ -52,12 +53,36 @@ function jmm_shortcode_func( $atts, $content = null ) {
 
 // [join-this-site] - no params
 function jmm_shortcode_thissite_func( $atts, $content = null ) {
-    $jmm_options = get_option( 'widget_helf-add-user-widget' );
-    
-?>
-    <form action="?jmm-join-site" method="post" id="notmember">
-    <input type="hidden" name="action" value="jmm-join-site">
-    <input type="submit" value="<?php $jmm_options['notmember'] ?>" name="join-site" id="join-site" class="button">
-    </form>
-<?php
+    $jmm_options = get_option( 'helfjmm_options' );    
+    if( !is_user_logged_in() ) {
+	    if ( get_option('users_can_register') == 1 ) {
+			// If user isn't logged in but we allow for registration....
+	                         
+			// IF we have a custom URL, use it, else send to /wp-signup.php
+			if ( !is_null($jmm_options['perpage']) && $jmm_options['perpage'] != "XXXXXX"  )
+				{$goto = get_permalink($jmm_options['perpage']); }
+			else
+				{$goto = '/wp-signup.php';}
+	                        
+			// Here is our form
+			?>
+			<form action="<?php echo $goto ?>" method="post" id="notmember">
+			<input type="hidden" name="action" value="jmm-join-site">
+			<input type="submit" value="<?php _e( 'Register For An Account', 'helfjmm' )?>" name="join-site" id="join-site" class="button">
+			</form>
+			<?php       
+        }
+        // If we don't allow registration, we show nothing. On to the next one!
+    } elseif( !is_user_member_of_blog() ) {
+    	// If user IS logged in, then let's invite them to play.
+    	?>
+        <form action="?jmm-join-site" method="post" id="notmember">
+        <input type="hidden" name="action" value="jmm-join-site">
+        <input type="submit" value="<?php _e( 'Join This Site', 'helfjmm' )?>" name="join-site" id="join-site" class="button">
+        </form>
+        <?php
+    } else {
+    	// Otherwise we're already a member, hello, mum!
+        ?><p><?php _e( 'Howdy, Member!', 'helfjmm' )?></p><?php
+    }
 }

@@ -34,6 +34,14 @@ if (!get_option( 'helfjmm_options' )) {
     update_option('helfjmm_options', $jmm_options);
 }
 
+if (get_option( 'helfjmm_options' )) {
+    $jmm_options = get_option( 'helfjmm_options' );
+    if( isset($jmm_options['persite']) && $jmm_options['persite'] != '0' && ($jmm_options['perpage'] == 'XXXXXX' || $jmm_options['perpage'] == '0' ) ) {
+        ?><div id="message" class="error"><p><strong><?php _e('Join My Multisite needs your attention:', 'helfjmm'); ?></strong> <?php _e('You\'ve selected custom registration but have not selected a page to use. No one will be able to register for your site until you fix this.', 'helfjmm'); echo $jmm_options['perpage']; ?></p></div><?php
+    }
+}
+
+
 /* 
     Widgets
 */

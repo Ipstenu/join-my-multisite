@@ -66,9 +66,13 @@ if( isset($_POST['action']) && $_POST['action'] == 'update' ) {
                         </p></td>
                         <td><p class="description">
                         <?php _e('Auto-Add signed in users to this site when they visit.', 'helfjmm'); ?><br />
-                        <?php _e('Allow signed in users to join via a widget.', 'helfjmm'); ?><br />
+                        <?php _e('Allow signed in users to join via a widget or the shortcode <code>[join-this-site]</code>.', 'helfjmm'); ?><br />            
                         <?php _e('Don\'t allow new users to add themselves this site, add them manually.', 'helfjmm'); ?>
-                        </p></td>
+                        </p>
+                        <?php if ( get_option('users_can_register') == 2 ) {
+	                        ?><p><?php _e('To allow users to register via a button on any page or post on your site, use the shortcode <code>[join-this-site]</code> - Simply insert it and you\'re good!', 'helfjmm'); ?></p><?php
+                        } ?>
+                        </td>
                     </tr>
                     
                     <?php
