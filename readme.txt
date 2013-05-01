@@ -3,7 +3,7 @@ Contributors: Ipstenu
 Tags: multisite, wpmu, registration, users
 Requires at least: 3.4
 Tested up to: 3.6
-Stable tag: 1.5.2
+Stable tag: 1.5.3
 Donate link: https://www.wepay.com/donations/halfelf-wp
 
 Allow site admins to automatically add existing users to their site, or let users decide at the click a button.
@@ -32,6 +32,12 @@ When you have registration turned on, each site can chose to use 'Per Site Regis
 * [Donate](https://www.wepay.com/donations/halfelf-wp)
 
 ==Changelog==
+
+= 1.5.3 =
+19 April, 2013
+
+* Cleanup of settings and defines to show a better alert when you don't have everything set up.
+* Corrected if-statement for display on admin end.
 
 = 1.5.2 =
 9 April, 2013

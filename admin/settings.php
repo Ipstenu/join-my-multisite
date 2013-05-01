@@ -69,7 +69,7 @@ if( isset($_POST['action']) && $_POST['action'] == 'update' ) {
                         <?php _e('Allow signed in users to join via a widget or the shortcode <code>[join-this-site]</code>.', 'helfjmm'); ?><br />            
                         <?php _e('Don\'t allow new users to add themselves this site, add them manually.', 'helfjmm'); ?>
                         </p>
-                        <?php if ( get_option('users_can_register') == 2 ) {
+                        <?php if ( get_option('users_can_register') == 1 && $jmm_options['type'] == 2 ) {
 	                        ?><p><?php _e('To allow users to register via a button on any page or post on your site, use the shortcode <code>[join-this-site]</code> - Simply insert it and you\'re good!', 'helfjmm'); ?></p><?php
                         } ?>
                         </td>
@@ -94,6 +94,11 @@ if( isset($_POST['action']) && $_POST['action'] == 'update' ) {
                     <tr valign="top">
                         <th scope="row"></th>
                         <td>
+                        
+                        <?php if ( !isset($jmm_options['perpage'] ) || $jmm_options['perpage'] == 0 ) { ?> 
+                        	<div id="message" class="error"><p><strong><?php _e('Join My Multisite needs your attention:', 'helfjmm'); ?></strong> <?php _e('You\'ve selected custom registration but have not selected a page to use. No one will be able to register for your site until you fix this.', 'helfjmm'); ?></p></div>
+                        <?php } ?>
+                        
                         <p><select name="jmm_perpage" id='jmm_options[perpage]'>
                             <option value="0"><?php _e( '&mdash; Select &mdash;' ); ?></option>
                             <?php echo walk_page_dropdown_tree( $all_pages, 0, array( 'depth' => 1,'selected' => $jmm_options['perpage'] ) ); ?>
