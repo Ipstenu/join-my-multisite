@@ -153,6 +153,9 @@ $newblogname = isset($_GET['new']) ? strtolower(preg_replace('/^-|-$|[^-a-zA-Z0-
 $current_user = wp_get_current_user();
 if ( $active_signup == 'none' ) {
 	_e( 'Registration has been disabled.' );
+} elseif ( $active_signup == 'blog' && !is_user_logged_in() ) {
+	$login_url = site_url( 'wp-login.php?redirect_to=' . urlencode( get_permalink() ) );
+	echo sprintf( __( 'You must first <a href="%s">log in</a>, and then you can join this site.', 'helmjmm' ), $login_url );
 } else {
 	$stage = isset( $_POST['stage'] ) ?  $_POST['stage'] : 'default';
 	switch ( $stage ) {

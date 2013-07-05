@@ -3,7 +3,7 @@
 Plugin Name: Join My Multisite
 Plugin URI: http://halfelf.org/plugins/join-my-multisite/
 Description: Allow logged in users to add themselves to sites (or auto-add them to all sites).
-Version: 1.5.3
+Version: 1.5.4
 Author: Mika Epstein (Ipstenu)
 Author URI: http://ipstenu.org/
 Network: true
@@ -30,7 +30,7 @@ Copyright 2012 Mika Epstein (email: ipstenu@ipstenu.org)
 global $wp_version;
 $exit_msg_version = 'Sorry, but this plugin is no longer supported on pre-3.5 WordPress installs.';
 if (version_compare($wp_version,"3.5","<")) { exit($exit_msg_version); }
-$exit_msg_multisite = 'This plugin only functions on WordPress Multisite. Hence the name: Join My Multisite.';
+$exit_msg_multisite = 'This plugin only functions on WordPress Multisite.';
 if( !is_multisite() ) { exit($exit_msg_multisite); }
 
 // My Defines

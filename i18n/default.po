@@ -1,14 +1,14 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Join My Multisite\n"
-"POT-Creation-Date: 2013-04-09 20:00-0800\n"
-"PO-Revision-Date: 2013-04-09 20:00-0800\n"
+"POT-Creation-Date: 2013-07-05 08:40-0800\n"
+"PO-Revision-Date: 2013-07-05 08:40-0800\n"
 "Last-Translator: Mika Epstein (Ipstenu) <ipstenu@ipstenu.org>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 1.5.4\n"
+"X-Generator: Poedit 1.5.5\n"
 "X-Poedit-KeywordsList: _;gettext;gettext_noop;_e;__;esc_attr_e\n"
 "X-Poedit-Basepath: .\n"
 "X-Poedit-SearchPath-0: ..\n"
@@ -19,16 +19,6 @@ msgstr ""
 
 #: ../joinmymultisite.php:58 ../admin/help.php:36
 msgid "Join My Multisite"
-msgstr ""
-
-#: ../admin/defines.php:40
-msgid "Join My Multisite needs your attention:"
-msgstr ""
-
-#: ../admin/defines.php:40
-msgid ""
-"You've selected custom registration but have not selected a page to use. No "
-"one will be able to register for your site until you fix this."
 msgstr ""
 
 #: ../admin/help.php:34
@@ -91,7 +81,7 @@ msgstr ""
 msgid "Manual: "
 msgstr ""
 
-#: ../admin/help.php:59 ../admin/settings.php:69
+#: ../admin/help.php:59
 msgid ""
 "Allow signed in users to join via a widget or the shortcode <code>[join-this-"
 "site]</code>."
@@ -187,6 +177,12 @@ msgstr ""
 msgid "None"
 msgstr ""
 
+#: ../admin/settings.php:69
+msgid ""
+"Allow signed in users to join via a widget or the shortcode <code>[join-my-"
+"multisite]</code>."
+msgstr ""
+
 #: ../admin/settings.php:73
 msgid ""
 "To allow users to register via a button on any page or post on your site, "
@@ -209,26 +205,36 @@ msgid ""
 "registration page."
 msgstr ""
 
-#: ../admin/settings.php:98
-msgid "&mdash; Select &mdash;"
+#: ../admin/settings.php:99
+msgid "Join My Multisite needs your attention:"
+msgstr ""
+
+#: ../admin/settings.php:99
+msgid ""
+"You've selected custom registration but have not selected a page to use. No "
+"one will be able to register for your site until you fix this."
 msgstr ""
 
 #: ../admin/settings.php:103
+msgid "&mdash; Select &mdash;"
+msgstr ""
+
+#: ../admin/settings.php:108
 msgid ""
 "Users who are not logged in will be redirected to the perpage you select "
 "from the dropdowns. Only top-level pages may be used. Use the following "
 "shortcode to display the login form:"
 msgstr ""
 
-#: ../admin/settings.php:112
+#: ../admin/settings.php:117
 msgid "New User Default Role:"
 msgstr ""
 
-#: ../admin/settings.php:115
+#: ../admin/settings.php:120
 msgid "-- None --"
 msgstr ""
 
-#: ../admin/settings.php:124
+#: ../admin/settings.php:129
 msgid "Update Options"
 msgstr ""
 
@@ -305,11 +311,17 @@ msgstr ""
 msgid "Registration has been disabled."
 msgstr ""
 
-#: ../lib/signuppage.php:163
+#: ../lib/signuppage.php:158
+#, php-format
+msgid ""
+"You must first <a href=\"%s\">log in</a>, and then you can join this site."
+msgstr ""
+
+#: ../lib/signuppage.php:166
 msgid "User registration has been disabled."
 msgstr ""
 
-#: ../lib/signuppage.php:172
+#: ../lib/signuppage.php:175
 msgid "You are logged in already. No need to register again!"
 msgstr ""
 

@@ -66,7 +66,7 @@ if( isset($_POST['action']) && $_POST['action'] == 'update' ) {
                         </p></td>
                         <td><p class="description">
                         <?php _e('Auto-Add signed in users to this site when they visit.', 'helfjmm'); ?><br />
-                        <?php _e('Allow signed in users to join via a widget or the shortcode <code>[join-this-site]</code>.', 'helfjmm'); ?><br />            
+                        <?php _e('Allow signed in users to join via a widget or the shortcode <code>[join-my-multisite]</code>.', 'helfjmm'); ?><br />            
                         <?php _e('Don\'t allow new users to add themselves this site, add them manually.', 'helfjmm'); ?>
                         </p>
                         <?php if ( get_option('users_can_register') == 1 && $jmm_options['type'] == 2 ) {
