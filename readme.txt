@@ -3,7 +3,7 @@ Contributors: Ipstenu
 Tags: multisite, wpmu, registration, users
 Requires at least: 3.4
 Tested up to: 3.6
-Stable tag: 1.5.4
+Stable tag: 1.6
 Donate link: https://www.wepay.com/donations/halfelf-wp
 
 Allow site admins to automatically add existing users to their site, or let users decide at the click a button.
@@ -32,6 +32,11 @@ When you have registration turned on, each site can chose to use 'Per Site Regis
 * [Donate](https://www.wepay.com/donations/halfelf-wp)
 
 ==Changelog==
+
+= 1.6 =
+11 July, 2013
+
+* Fixed shortcode output to work with text around it. Remember kids, shortcodes return, not echo. (also using ob_start etc to properly catch things in a better way).
 
 = 1.5.4 =
 5 July, 2013
@@ -156,3 +161,7 @@ In your theme's CSS. This is basically the default WordPress signup page, just d
 = Can users sign up for a blog and an account when using the shortcode? =
 
 No. That's such a massive network thing, the tinfoil hat in me didn't want to do it. You could fiddle with the signup page code, if you wanted, but I don't plan to support it.
+
+= Is this BuddyPress compatible? =
+
+As far as the BuddyPress basics go (one instance, network activated) it seems to.

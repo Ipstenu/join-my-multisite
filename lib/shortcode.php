@@ -48,7 +48,11 @@ function jmm_shortcode_func( $atts, $content = null ) {
     global $wp_query;
     add_action( 'wp_head', 'wp_no_robots' );
     $wp_query->is_404 = false;
+    ob_start();
     include_once( PLUGIN_DIR. '/lib/signuppage.php');
+    $output_string = ob_get_contents();
+    ob_end_clean();
+    return $output_string;
 }
 
 // [join-this-site] - no params
@@ -65,24 +69,21 @@ function jmm_shortcode_thissite_func( $atts, $content = null ) {
 				{$goto = '/wp-signup.php';}
 	                        
 			// Here is our form
-			?>
-			<form action="<?php echo $goto ?>" method="post" id="notmember">
+			return '<form action="'.$goto.'" method="post" id="notmember">
 			<input type="hidden" name="action" value="jmm-join-site">
-			<input type="submit" value="<?php _e( 'Register For An Account', 'helfjmm' )?>" name="join-site" id="join-site" class="button">
-			</form>
-			<?php       
+			<input type="submit" value="'.__( 'Register For An Account', 'helfjmm' ).'" name="join-site" id="join-site" class="button">
+			</form>';
         }
         // If we don't allow registration, we show nothing. On to the next one!
     } elseif( !is_user_member_of_blog() ) {
-    	// If user IS logged in, then let's invite them to play.
-    	?>
-        <form action="?jmm-join-site" method="post" id="notmember">
+    	// If user IS logged in, then let's invite them to play.    	
+        return '<form action="?jmm-join-site" method="post" id="notmember">
         <input type="hidden" name="action" value="jmm-join-site">
-        <input type="submit" value="<?php _e( 'Join This Site', 'helfjmm' )?>" name="join-site" id="join-site" class="button">
-        </form>
-        <?php
+        <input type="submit" value="'.__( 'Join This Site', 'helfjmm' ).'" name="join-site" id="join-site" class="button">
+        </form>';
+
     } else {
     	// Otherwise we're already a member, hello, mum!
-        ?><p><?php _e( 'Howdy, Member!', 'helfjmm' )?></p><?php
+        return '<p>'.__( 'Howdy, Member!', 'helfjmm' ).'</p>';
     }
 }
