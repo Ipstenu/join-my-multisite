@@ -3,7 +3,7 @@
 Plugin Name: Join My Multisite
 Plugin URI: http://halfelf.org/plugins/join-my-multisite/
 Description: Allow logged in users to add themselves to sites (or auto-add them to all sites).
-Version: 1.5.4
+Version: 1.6
 Author: Mika Epstein (Ipstenu)
 Author URI: http://ipstenu.org/
 Network: true
