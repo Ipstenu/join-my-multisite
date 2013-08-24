@@ -1,8 +1,8 @@
 === Join My Multisite ===
 Contributors: Ipstenu
 Tags: multisite, wpmu, registration, users
-Requires at least: 3.4
-Tested up to: 3.6
+Requires at least: 3.5
+Tested up to: 3.7
 Stable tag: 1.6
 Donate link: https://www.wepay.com/donations/halfelf-wp
 
@@ -32,6 +32,11 @@ When you have registration turned on, each site can chose to use 'Per Site Regis
 * [Donate](https://www.wepay.com/donations/halfelf-wp)
 
 ==Changelog==
+
+= 1.6.1 =
+23 Aug, 2013
+
+* Changing page to match changes in http://core.trac.wordpress.org/ticket/18186 for WP 3.7
 
 = 1.6 =
 11 July, 2013

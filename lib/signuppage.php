@@ -133,9 +133,7 @@ function confirm_user_signup($user_name, $user_email) {
 }
 
 // Main
-$active_signup = get_site_option( 'registration' );
-if ( !$active_signup )
-	$active_signup = 'all';
+$active_signup = get_site_option( 'registration', 'none' );
 
 $active_signup = apply_filters( 'wpmu_active_signup', $active_signup ); // return "all", "none", "blog" or "user"
 
