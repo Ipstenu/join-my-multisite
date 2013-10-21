@@ -1,9 +1,9 @@
 === Join My Multisite ===
 Contributors: Ipstenu
 Tags: multisite, wpmu, registration, users
-Requires at least: 3.5
+Requires at least: 3.7
 Tested up to: 3.7
-Stable tag: 1.6
+Stable tag: 1.6.1
 Donate link: https://www.wepay.com/donations/halfelf-wp
 
 Allow site admins to automatically add existing users to their site, or let users decide at the click a button.
@@ -34,8 +34,10 @@ When you have registration turned on, each site can chose to use 'Per Site Regis
 ==Changelog==
 
 = 1.6.1 =
-23 Aug, 2013
+20 Oct, 2013
 
+* Adding translation to Nav Menu per suggestion by <a href="http://wordpress.org/support/topic/translation-again?replies=2#post-4750279">bottapress</a>
+* Updated to match changes and inline docs in 3.7
 * Changing page to match changes in http://core.trac.wordpress.org/ticket/18186 for WP 3.7
 
 = 1.6 =

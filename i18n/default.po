@@ -1,14 +1,14 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Join My Multisite\n"
-"POT-Creation-Date: 2013-07-05 08:40-0800\n"
-"PO-Revision-Date: 2013-07-05 08:40-0800\n"
+"POT-Creation-Date: 2013-10-20 18:08-0800\n"
+"PO-Revision-Date: 2013-10-20 18:08-0800\n"
 "Last-Translator: Mika Epstein (Ipstenu) <ipstenu@ipstenu.org>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 1.5.5\n"
+"X-Generator: Poedit 1.5.7\n"
 "X-Poedit-KeywordsList: _;gettext;gettext_noop;_e;__;esc_attr_e\n"
 "X-Poedit-Basepath: .\n"
 "X-Poedit-SearchPath-0: ..\n"
@@ -238,68 +238,68 @@ msgstr ""
 msgid "Update Options"
 msgstr ""
 
-#: ../lib/shortcode.php:71
+#: ../lib/shortcode.php:74
 msgid "Register For An Account"
 msgstr ""
 
-#: ../lib/shortcode.php:81
+#: ../lib/shortcode.php:82
 msgid "Join This Site"
 msgstr ""
 
-#: ../lib/shortcode.php:86
+#: ../lib/shortcode.php:87
 msgid "Howdy, Member!"
 msgstr ""
 
-#: ../lib/signuppage.php:47
+#: ../lib/signuppage.php:73
 msgid "Username:"
 msgstr ""
 
-#: ../lib/signuppage.php:52
+#: ../lib/signuppage.php:78
 msgid "(Must be at least 4 characters, letters and numbers only.)"
 msgstr ""
 
-#: ../lib/signuppage.php:55
+#: ../lib/signuppage.php:81
 msgid "Email&nbsp;Address:"
 msgstr ""
 
-#: ../lib/signuppage.php:59
+#: ../lib/signuppage.php:85
 msgid ""
 "We send your registration email to this address. (Double-check your email "
 "address before continuing.)"
 msgstr ""
 
-#: ../lib/signuppage.php:92
+#: ../lib/signuppage.php:162
 #, php-format
 msgid "Create your account on %s"
 msgstr ""
 
-#: ../lib/signuppage.php:100
+#: ../lib/signuppage.php:173
 msgid "Signup"
 msgstr ""
 
-#: ../lib/signuppage.php:127
+#: ../lib/signuppage.php:220
 #, php-format
 msgid "%s is your new username"
 msgstr ""
 
-#: ../lib/signuppage.php:128
+#: ../lib/signuppage.php:221
 msgid ""
 "Before you can start using your new username, <strong>you must activate it</"
 "strong>."
 msgstr ""
 
-#: ../lib/signuppage.php:129
+#: ../lib/signuppage.php:222
 #, php-format
 msgid "Check your inbox at <strong>%s</strong> and click the link given."
 msgstr ""
 
-#: ../lib/signuppage.php:130
+#: ../lib/signuppage.php:223
 msgid ""
 "If you do not activate your username within two days, you will have to sign "
 "up again."
 msgstr ""
 
-#: ../lib/signuppage.php:149
+#: ../lib/signuppage.php:249
 #, php-format
 msgid ""
 "Greetings Network Administrator! You are currently allowing &#8220;%s&#8221; "
@@ -307,21 +307,21 @@ msgid ""
 "\">Options page</a>."
 msgstr ""
 
-#: ../lib/signuppage.php:155
+#: ../lib/signuppage.php:255
 msgid "Registration has been disabled."
 msgstr ""
 
-#: ../lib/signuppage.php:158
+#: ../lib/signuppage.php:258
 #, php-format
 msgid ""
 "You must first <a href=\"%s\">log in</a>, and then you can join this site."
 msgstr ""
 
-#: ../lib/signuppage.php:166
+#: ../lib/signuppage.php:266
 msgid "User registration has been disabled."
 msgstr ""
 
-#: ../lib/signuppage.php:175
+#: ../lib/signuppage.php:281
 msgid "You are logged in already. No need to register again!"
 msgstr ""
 

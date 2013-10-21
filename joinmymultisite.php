@@ -28,8 +28,8 @@ Copyright 2012 Mika Epstein (email: ipstenu@ipstenu.org)
 
 // First we check to make sure you meet the requirements
 global $wp_version;
-$exit_msg_version = 'Sorry, but this plugin is no longer supported on pre-3.5 WordPress installs.';
-if (version_compare($wp_version,"3.5","<")) { exit($exit_msg_version); }
+$exit_msg_version = 'Sorry, but this plugin is no longer supported on pre-3.7 WordPress installs.';
+if (version_compare($wp_version,"3.7","<")) { exit($exit_msg_version); }
 $exit_msg_multisite = 'This plugin only functions on WordPress Multisite.';
 if( !is_multisite() ) { exit($exit_msg_multisite); }
 
@@ -55,7 +55,7 @@ class JMM {
 	function add_settings_page() {
         load_plugin_textdomain( 'helfjmm', false, dirname( plugin_basename( __FILE__ ) ) . '/i18n/' );
         global $jmm_settings_page;
-        $jmm_settings_page = add_users_page(__('Join My Multisite Settings'), __('Join My Multisite'), 'manage_options', 'jmm', array('JMM', 'settings_page'));
+        $jmm_settings_page = add_users_page(__('Join My Multisite Settings','helfjmm'), __('Join My Multisite','helfjmm'), 'manage_options', 'jmm', array('JMM', 'settings_page'));
     	}
 	 
  	function settings_page() {
