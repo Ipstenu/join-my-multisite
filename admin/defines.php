@@ -22,7 +22,9 @@ if (!defined('ABSPATH')) {
 }
 
 define( 'JMM', true);
-if ( !defined('helfjmm')) {define('helfjmm','helfjmm');} // Translation
+
+load_plugin_textdomain( 'join-my-multisite', false, dirname( plugin_basename( __FILE__ ) ) . '/i18n/' );
+
 defined('PLUGIN_DIR') || define('PLUGIN_DIR', realpath(dirname(__FILE__) . '/..'));
 
 if (!get_option( 'helfjmm_options' )) {
@@ -60,6 +62,5 @@ add_action('contextual_help', 'jmm_plugin_help', 10, 3);
 // Actions and Filters
 
 add_filter('plugin_row_meta', array('JMM', 'donate_link'), 10, 2);
-add_action('admin_menu', array('JMM', 'add_settings_page'));
-add_action('jmm_joinsite', array('JMM', 'join_site'));
-add_action('init', array('JMM', 'init'));
+add_action('admin_menu', array('JMM', 'add_settings_page'), 10, 2);
+add_action('jmm_joinsite', array('JMM', 'join_site'), 10, 2);

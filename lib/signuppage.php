@@ -70,19 +70,19 @@ do_action( 'before_signup_form' );
 
 function show_user_form($user_name = '', $user_email = '', $errors = '') {
 	// User name
-	echo '<label for="user_name">' . __('Username:', 'helfjmm') . '</label>';
+	echo '<label for="user_name">' . __('Username:', 'join-my-multisite') . '</label>';
 	if ( $errmsg = $errors->get_error_message('user_name') ) {
 		echo '<p class="error">'.$errmsg.'</p>';
 	}
 	echo '<input name="user_name" type="text" id="user_name" value="'. esc_attr($user_name) .'" maxlength="60" /><br />';
-	_e( '(Must be at least 4 characters, letters and numbers only.)', 'helfjmm' );
+	_e( '(Must be at least 4 characters, letters and numbers only.)', 'join-my-multisite' );
 	?>
 
-	<label for="user_email"><?php _e( 'Email&nbsp;Address:', 'helfjmm' ) ?></label>
+	<label for="user_email"><?php _e( 'Email&nbsp;Address:', 'join-my-multisite' ) ?></label>
 	<?php if ( $errmsg = $errors->get_error_message('user_email') ) { ?>
 		<p class="error"><?php echo $errmsg ?></p>
 	<?php } ?>
-	<input name="user_email" type="text" id="user_email" value="<?php  echo esc_attr($user_email) ?>" maxlength="200" /><br /><?php _e('We send your registration email to this address. (Double-check your email address before continuing.)', 'helfjmm') ?>
+	<input name="user_email" type="text" id="user_email" value="<?php  echo esc_attr($user_email) ?>" maxlength="200" /><br /><?php _e('We send your registration email to this address. (Double-check your email address before continuing.)', 'join-my-multisite') ?>
 	<?php
 	if ( $errmsg = $errors->get_error_message('generic') ) {
 		echo '<p class="error">' . $errmsg . '</p>';
@@ -159,8 +159,8 @@ function signup_user($user_name = '', $user_email = '', $errors = '') {
 	$errors = $filtered_results['errors'];
 	?>
 
-	<h2><?php printf( __( 'Create your account on %s', 'helfjmm' ), $current_site->site_name ) ?></h2>
-	<form id="setupform" method="post" action="wp-signup.php">
+	<h2><?php printf( __( 'Create your account on %s', 'join-my-multisite' ), $current_site->site_name ) ?></h2>
+	<form id="setupform" method="post" action="<?php echo $goto; ?>">
 		<input type="hidden" name="stage" value="validate-user-signup" />
 		<?php
 		//duplicate_hook
@@ -170,7 +170,7 @@ function signup_user($user_name = '', $user_email = '', $errors = '') {
 
 		<p><input id="signupblog" type="hidden" name="signup_for" value="user" /></p>
 
-		<p class="submit"><input type="submit" name="submit" class="submit" value="<?php esc_attr_e('Signup', 'helfjmm') ?>" /></p>
+		<p class="submit"><input type="submit" name="submit" class="submit" value="<?php esc_attr_e('Signup', 'join-my-multisite') ?>" /></p>
 	</form>
 	<?php
 }
@@ -217,10 +217,10 @@ function validate_user_signup() {
  */
 function confirm_user_signup($user_name, $user_email) {
 	?>
-	<h2><?php printf( __( '%s is your new username', 'helfjmm' ), $user_name) ?></h2>
-	<p><?php _e( 'Before you can start using your new username, <strong>you must activate it</strong>.', 'helfjmm' ) ?></p>
-	<p><?php printf( __( 'Check your inbox at <strong>%s</strong> and click the link given.', 'helfjmm' ), $user_email ); ?></p>
-	<p><?php _e( 'If you do not activate your username within two days, you will have to sign up again.', 'helfjmm' ); ?></p>
+	<h2><?php printf( __( '%s is your new username', 'join-my-multisite' ), $user_name) ?></h2>
+	<p><?php _e( 'Before you can start using your new username, <strong>you must activate it</strong>.', 'join-my-multisite' ) ?></p>
+	<p><?php printf( __( 'Check your inbox at <strong>%s</strong> and click the link given.', 'join-my-multisite' ), $user_email ); ?></p>
+	<p><?php _e( 'If you do not activate your username within two days, you will have to sign up again.', 'join-my-multisite' ); ?></p>
 	<?php
 	//duplicate_hook
 	do_action( 'signup_finished' );
@@ -246,13 +246,13 @@ $i18n_signup['user'] = _x('user', 'Multisite active signup type');
 
 
 if ( is_super_admin() )
-	echo '<div class="mu_alert">' . sprintf( __( 'Greetings Network Administrator! You are currently allowing &#8220;%s&#8221; registrations. To change or disable registration go to your <a href="%s">Options page</a>.', 'helfjmm' ), $i18n_signup[$active_signup], esc_url( network_admin_url( 'settings.php' ) ) ) . '</div>';
+	echo '<div class="mu_alert">' . sprintf( __( 'Greetings Network Administrator! You are currently allowing &#8220;%s&#8221; registrations. To change or disable registration go to your <a href="%s">Options page</a>.', 'join-my-multisite' ), $i18n_signup[$active_signup], esc_url( network_admin_url( 'settings.php' ) ) ) . '</div>';
 
 $newblogname = isset($_GET['new']) ? strtolower(preg_replace('/^-|-$|[^-a-zA-Z0-9]/', '', $_GET['new'])) : null;
 
 $current_user = wp_get_current_user();
 if ( $active_signup == 'none' ) {
-	_e( 'Registration has been disabled.', 'helfjmm' );
+	_e( 'Registration has been disabled.', 'join-my-multisite' );
 } elseif ( $active_signup == 'blog' && !is_user_logged_in() ) {
 	$login_url = site_url( 'wp-login.php?redirect_to=' . urlencode( get_permalink() ) );
 	echo sprintf( __( 'You must first <a href="%s">log in</a>, and then you can join this site.', 'helmjmm' ), $login_url );
@@ -278,7 +278,7 @@ if ( $active_signup == 'none' ) {
 			if ( is_user_logged_in() == false && ( $active_signup == 'all' || $active_signup == 'user' ) )
 				signup_user( $user_email );
 			elseif ( !is_super_admin() )
-				_e( 'You are logged in already. No need to register again!', 'helfjmm' );
+				_e( 'You are logged in already. No need to register again!', 'join-my-multisite' );
 			break;
 	}
 }

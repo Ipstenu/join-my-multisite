@@ -2,11 +2,13 @@
 /*
 Plugin Name: Join My Multisite
 Plugin URI: http://halfelf.org/plugins/join-my-multisite/
-Description: Allow logged in users to add themselves to sites (or auto-add them to all sites).
-Version: 1.6.1
+Description: Allow logged in users to add themselves to sites (or auto-add them to all sites). <strong>Settings are per-site, under the Users menu</strong>.
+Version: 1.7
 Author: Mika Epstein (Ipstenu)
-Author URI: http://ipstenu.org/
+Author URI: http://halfelf.org/
 Network: true
+Text Domain: join-my-multisite
+Domain Path: /i18n
 
 Copyright 2012 Mika Epstein (email: ipstenu@ipstenu.org)
 
@@ -39,11 +41,11 @@ require_once dirname(__FILE__) . '/admin/defines.php';
 class JMM {
 
     function init() {
-        load_plugin_textdomain( 'helfjmm', false, dirname( plugin_basename( __FILE__ ) ) . '/i18n/' );
+        load_plugin_textdomain( 'join-my-multisite', false, dirname( plugin_basename( __FILE__ ) ) . '/i18n/' );
     }
 
     // donate link on manage plugin page
-    function donate_link($links, $file) {
+    public static function donate_link($links, $file) {
         if ($file == plugin_basename(__FILE__)) {
                 $donate_link = '<a href="https://www.wepay.com/donations/halfelf-wp">Donate</a>';
                 $links[] = $donate_link;
@@ -52,13 +54,12 @@ class JMM {
     }
 
      // Sets up the settings page
-	function add_settings_page() {
-        load_plugin_textdomain( 'helfjmm', false, dirname( plugin_basename( __FILE__ ) ) . '/i18n/' );
+	public static function add_settings_page() {
         global $jmm_settings_page;
-        $jmm_settings_page = add_users_page(__('Join My Multisite Settings','helfjmm'), __('Join My Multisite','helfjmm'), 'manage_options', 'jmm', array('JMM', 'settings_page'));
+        $jmm_settings_page = add_users_page(__('Join My Multisite Settings','join-my-multisite'), __('Join My Multisite','join-my-multisite'), 'manage_options', 'jmm', array('JMM', 'settings_page'));
     	}
 	 
- 	function settings_page() {
+ 	public static function settings_page() {
 	   // Main Settings
 		include_once( PLUGIN_DIR . '/admin/settings.php');
 	}
@@ -78,3 +79,5 @@ class JMM {
     }
 
 }
+
+new JMM();

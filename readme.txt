@@ -2,8 +2,8 @@
 Contributors: Ipstenu
 Tags: multisite, wpmu, registration, users
 Requires at least: 3.7
-Tested up to: 3.7
-Stable tag: 1.6.1
+Tested up to: 3.8
+Stable tag: 1.7
 Donate link: https://www.wepay.com/donations/halfelf-wp
 
 Allow site admins to automatically add existing users to their site, or let users decide at the click a button.
@@ -32,6 +32,14 @@ When you have registration turned on, each site can chose to use 'Per Site Regis
 * [Donate](https://www.wepay.com/donations/halfelf-wp)
 
 ==Changelog==
+
+= 1.7 =
+06 Nov, 2013
+
+* Fixing redirect error with signups (thanks <a href="http://wordpress.org/support/topic/error-500-on-wp-signupphp">bottapress</a>)
+* Fixed Translations to be ready for Language Packs (see <a href="http://ottopress.com/2013/language-packs-101-prepwork/">Otto's post on prepwork to understand why</a>)
+* Cleaned up some directions
+* Resolved minor errors
 
 = 1.6.1 =
 20 Oct, 2013
@@ -123,7 +131,7 @@ This plugin is only network activatable. Configuration is done per-site via a pa
 
 == Upgrade Notice ==
 
-None yet.
+Translators - You will need to rebuild. I am sorry, but this is to get ready for language packs.
 
 == Frequently Asked Questions ==
 
@@ -172,3 +180,7 @@ No. That's such a massive network thing, the tinfoil hat in me didn't want to do
 = Is this BuddyPress compatible? =
 
 As far as the BuddyPress basics go (one instance, network activated) it seems to.
+
+= Can I set global options? =
+
+At this time, no. I don't have any interest in making per-site registration pages that are controlled by the network admin. You're welcome to fork or submit a pull request on the github respository - https://github.com/Ipstenu/join-my-multisite

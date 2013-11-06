@@ -36,13 +36,13 @@ if( isset($_POST['action']) && $_POST['action'] == 'update' ) {
     update_option( 'default_user_role', $new_options['role']);
 
     // Echo 
-    ?><div id='message' class='updated fade'><p><strong><?php _e('Options Updated!', 'helfjmm'); ?></strong></p></div><?php
+    ?><div id='message' class='updated fade'><p><strong><?php _e('Options Updated!', 'join-my-multisite'); ?></strong></p></div><?php
 }
 
 ?>
     <div class="wrap">
         <div id="icon-users" class="icon32"><br></div>
-        <h2><?php _e("Join My Multisite Settings", 'helfjmm'); ?></h2>
+        <h2><?php _e("Join My Multisite Settings", 'join-my-multisite'); ?></h2>
         
         <?php 
         $jmm_options = get_option( 'helfjmm_options' );    
@@ -53,24 +53,24 @@ if( isset($_POST['action']) && $_POST['action'] == 'update' ) {
             <input type="hidden" name="page_options" value="helfjmm_options" />
             <?php wp_nonce_field('update-options'); ?>
     
-            <p><?php _e('Select a membership type and a default role.', 'helfjmm'); ?></p>
+            <p><?php _e('Select a membership type and a default role.', 'join-my-multisite'); ?></p>
             
             <table class="form-table">
                 <tbody>
                     <tr valign="top">
-                        <th scope="row"><?php _e('Membership:', 'helfjmm'); ?></th>
+                        <th scope="row"><?php _e('Membership:', 'join-my-multisite'); ?></th>
                         <td><p>
-                            <input type="radio" name="jmm_type" value="1" <?php if ($jmm_options['type'] == 1) echo 'checked="checked"'; ?>> <label for="jmm-type"><strong><?php _e('Automatic', 'helfjmm'); ?></strong> </label><br />
-                            <input type="radio" name="jmm_type" value="2" <?php if ($jmm_options['type'] == 2) echo 'checked="checked"'; ?>> <label for="jmm-type"><strong><?php _e('Manual', 'helfjmm'); ?></strong> </label><br />
-                            <input type="radio" name="jmm_type" value="3" <?php if ($jmm_options['type'] == 3) echo 'checked="checked"'; ?>> <label for="jmm-type"><strong><?php _e('None', 'helfjmm'); ?></strong></label>
+                            <input type="radio" name="jmm_type" value="1" <?php if ($jmm_options['type'] == 1) echo 'checked="checked"'; ?>> <label for="jmm-type"><strong><?php _e('Automatic', 'join-my-multisite'); ?></strong> </label><br />
+                            <input type="radio" name="jmm_type" value="2" <?php if ($jmm_options['type'] == 2) echo 'checked="checked"'; ?>> <label for="jmm-type"><strong><?php _e('Manual', 'join-my-multisite'); ?></strong> </label><br />
+                            <input type="radio" name="jmm_type" value="3" <?php if ($jmm_options['type'] == 3) echo 'checked="checked"'; ?>> <label for="jmm-type"><strong><?php _e('None', 'join-my-multisite'); ?></strong></label>
                         </p></td>
                         <td><p class="description">
-                        <?php _e('Auto-Add signed in users to this site when they visit.', 'helfjmm'); ?><br />
-                        <?php _e('Allow signed in users to join via a widget or the shortcode <code>[join-my-multisite]</code>.', 'helfjmm'); ?><br />            
-                        <?php _e('Don\'t allow new users to add themselves this site, add them manually.', 'helfjmm'); ?>
+                        <?php _e('Auto-Add signed in users to this site when they visit.', 'join-my-multisite'); ?><br />
+                        <?php _e('Allow signed in users to join via a widget or the shortcode <code>[join-this-site]</code>.', 'join-my-multisite'); ?><br />            
+                        <?php _e('Don\'t allow new users to add themselves this site, add them manually.', 'join-my-multisite'); ?>
                         </p>
                         <?php if ( get_option('users_can_register') == 1 && $jmm_options['type'] == 2 ) {
-	                        ?><p><?php _e('To allow users to register via a button on any page or post on your site, use the shortcode <code>[join-this-site]</code> - Simply insert it and you\'re good!', 'helfjmm'); ?></p><?php
+	                        ?><p><?php _e('To allow users to register via a button on any page or post on your site, use the shortcode <code>[join-this-site]</code> - Simply insert it and you\'re good!', 'join-my-multisite'); ?></p><?php
                         } ?>
                         </td>
                     </tr>
@@ -82,11 +82,11 @@ if( isset($_POST['action']) && $_POST['action'] == 'update' ) {
                     ?>
                     
                     <tr valign="top">
-                        <th scope="row"><?php _e('Registration:', 'helfjmm'); ?></th>
+                        <th scope="row"><?php _e('Registration:', 'join-my-multisite'); ?></th>
                         <td><p>
-                            <input type="checkbox" name="jmm_persite" value="1" <?php if ($jmm_options['persite'] == 1) echo 'checked="checked"'; ?>> <label for="jmm-persite"><?php _e('Per-Site', 'helfjmm'); ?></label>
+                            <input type="checkbox" name="jmm_persite" value="1" <?php if ($jmm_options['persite'] == 1) echo 'checked="checked"'; ?>> <label for="jmm-persite"><?php _e('Per-Site', 'join-my-multisite'); ?></label>
                         </p></td>
-                        <td><p class="description"><?php _e('Check this box if you want to use a shortcode to customize per-site registration. If unchecked, registrations will be sent to the network registration page.', 'helfjmm'); ?></p></td>
+                        <td><p class="description"><?php _e('Check this box if you want to use a shortcode to customize per-site registration. If unchecked, registrations will be sent to the network registration page.', 'join-my-multisite'); ?></p></td>
                     </tr>
                     <?php if ($jmm_options['persite'] == 1) { 
                             $all_pages = get_pages();
@@ -96,7 +96,7 @@ if( isset($_POST['action']) && $_POST['action'] == 'update' ) {
                         <td>
                         
                         <?php if ( !isset($jmm_options['perpage'] ) || $jmm_options['perpage'] == 0 ) { ?> 
-                        	<div id="message" class="error"><p><strong><?php _e('Join My Multisite needs your attention:', 'helfjmm'); ?></strong> <?php _e('You\'ve selected custom registration but have not selected a page to use. No one will be able to register for your site until you fix this.', 'helfjmm'); ?></p></div>
+                        	<div id="message" class="error"><p><strong><?php _e('Join My Multisite needs your attention:', 'join-my-multisite'); ?></strong> <?php _e('You\'ve selected custom registration but have not selected a page to use. No one will be able to register for your site until you fix this.', 'join-my-multisite'); ?></p></div>
                         <?php } ?>
                         
                         <p><select name="jmm_perpage" id='jmm_options[perpage]'>
@@ -105,7 +105,7 @@ if( isset($_POST['action']) && $_POST['action'] == 'update' ) {
                         </select></p>
                         </td>
                         
-                        <td><p class="description"><?php _e('Users who are not logged in will be redirected to the perpage you select from the dropdowns. Only top-level pages may be used. Use the following shortcode to display the login form:', 'helfjmm'); ?><br />
+                        <td><p class="description"><?php _e('Users who are not logged in will be redirected to the perpage you select from the dropdowns. Only top-level pages may be used. Use the following shortcode to display the login form:', 'join-my-multisite'); ?><br />
                             <code>[join-my-multisite]</code>
                         </td>
                     </tr>
@@ -114,10 +114,10 @@ if( isset($_POST['action']) && $_POST['action'] == 'update' ) {
                     endif; // End check for if registration is on for the network.
                     ?>
                     <tr> 
-                        <th scope="row"><?php _e('New User Default Role:', 'helfjmm'); ?></th>
+                        <th scope="row"><?php _e('New User Default Role:', 'join-my-multisite'); ?></th>
                         <td>
                         <select name="jmm_role" id="<?php echo $jmm_options['role']; ?>">
-                        <option value="none"><?php _e( '-- None --', 'helfjmm' )?></option>
+                        <option value="none"><?php _e( '-- None --', 'join-my-multisite' )?></option>
                         <?php wp_dropdown_roles( get_option( 'default_user_role' ) ); ?>
                         </select>
                         </td>
@@ -126,6 +126,6 @@ if( isset($_POST['action']) && $_POST['action'] == 'update' ) {
             </tbody>
             </table>
             
-            <p class="submit"><input class='button-primary' type='Submit' name='update' value='<?php _e("Update Options", 'helfjmm'); ?>' id='submitbutton' /></p>
+            <p class="submit"><input class='button-primary' type='Submit' name='update' value='<?php _e("Update Options", 'join-my-multisite'); ?>' id='submitbutton' /></p>
     
         </form>

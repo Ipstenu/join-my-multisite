@@ -119,41 +119,41 @@ class jmm_JMM_Widget extends WP_Widget {
 		$instance = wp_parse_args( (array) $instance, $defaults ); ?>
 
 		<p>
-			<label for="<?php echo $this->get_field_id( 'title' ); ?>"><?php _e( 'Title:', 'helfjmm' )?></label>
+			<label for="<?php echo $this->get_field_id( 'title' ); ?>"><?php _e( 'Title:', 'join-my-multisite' )?></label>
 			<input id="<?php echo $this->get_field_id( 'title' ); ?>" name="<?php echo $this->get_field_name( 'title' ); ?>" value="<?php echo $instance['title']; ?>" style="width:90%;" />
 		</p>
 
 		<hr>
 
-		<p><strong><?php _e( 'Button Text', 'helfjmm' )?></strong></label>
+		<p><strong><?php _e( 'Button Text', 'join-my-multisite' )?></strong></label>
 
         <?php if (get_option('users_can_register')) { ?>
 		<p>
-			<label for="<?php echo $this->get_field_id( 'notreg' ); ?>"><?php _e( 'Not registered on the network:', 'helfjmm' )?></label>
+			<label for="<?php echo $this->get_field_id( 'notreg' ); ?>"><?php _e( 'Not registered on the network:', 'join-my-multisite' )?></label>
 			<input id="<?php echo $this->get_field_id( 'notreg' ); ?>" name="<?php echo $this->get_field_name( 'notreg' ); ?>" value="<?php echo $instance['notreg']; ?>" style="width:90%;" />
 		</p>
 		<p>
             <input class="checkbox" type="checkbox" <?php checked( $instance['show_form'], 'on' ); ?> id="<?php echo $this->get_field_id( 'show_form' ); ?>" name="<?php echo $this->get_field_name( 'show_form' ); ?>" /> 
-            <label for="<?php echo $this->get_field_id( 'show_form' ); ?>"><?php _e( 'Show in-line login form.', 'helfjmm' )?></label>
+            <label for="<?php echo $this->get_field_id( 'show_form' ); ?>"><?php _e( 'Show in-line login form.', 'join-my-multisite' )?></label>
         </p>
         
         <?php } ?>
 		<p>
-			<label for="<?php echo $this->get_field_id( 'notmember' ); ?>"><?php _e( 'Not a member of this site:', 'helfjmm' )?></label>
+			<label for="<?php echo $this->get_field_id( 'notmember' ); ?>"><?php _e( 'Not a member of this site:', 'join-my-multisite' )?></label>
 			<input id="<?php echo $this->get_field_id( 'notmember' ); ?>" name="<?php echo $this->get_field_name( 'notmember' ); ?>" value="<?php echo $instance['notmember']; ?>" style="width:90%;" />
 		</p>
 
 		<hr>
 
-		<p><strong><?php _e( 'Welcome Message Text', 'helfjmm' )?></strong></label>
+		<p><strong><?php _e( 'Welcome Message Text', 'join-my-multisite' )?></strong></label>
 
 		<p>
-			<label for="<?php echo $this->get_field_id( 'member' ); ?>"><?php _e( 'Existing members:', 'helfjmm' )?></label>
+			<label for="<?php echo $this->get_field_id( 'member' ); ?>"><?php _e( 'Existing members:', 'join-my-multisite' )?></label>
 			<input id="<?php echo $this->get_field_id( 'member' ); ?>" name="<?php echo $this->get_field_name( 'member' ); ?>" value="<?php echo $instance['member']; ?>" style="width:90%;" />
 		</p>
 
 		<p>
-			<label for="<?php echo $this->get_field_id( 'welcome' ); ?>"><?php _e( 'New member (shown on signup):', 'helfjmm' )?></label>
+			<label for="<?php echo $this->get_field_id( 'welcome' ); ?>"><?php _e( 'New member (shown on signup):', 'join-my-multisite' )?></label>
 			<input id="<?php echo $this->get_field_id( 'welcome' ); ?>" name="<?php echo $this->get_field_name( 'welcome' ); ?>" value="<?php echo $instance['welcome']; ?>" style="width:90%;" />
 		</p>
 

@@ -31,11 +31,11 @@ if ($screen->id == 'users_page_jmm') {
     // Introduction
     $screen->add_help_tab( array(
 		'id'      => 'jmm-menu-base',
-		'title'   => __('Overview', 'helfjmm'),
+		'title'   => __('Overview', 'join-my-multisite'),
 		'content' => 
-		'<h3>' . __('Join My Multisite', 'helfjmm') .'</h3>' .
-		'<p>' . __( 'This simple plugin allows you to chose how you add users to your site. Traditionally, a Multisite network requires you to either manually add users to your site, or to have the Network Admin configure the Network so all new users are added. Sometimes, you want more.', 'helfjmm' ) . '</p>' .
-		'<p>' . __( 'There are three basic options to this plugin, and by default it\'s set to keep things exactly as they are today: Users must be manually added to your site. Only per-site admins can make changes, so you don\'t have to worry about your editors making changes.', 'helfjmm' ) . '</p>'
+		'<h3>' . __('Join My Multisite', 'join-my-multisite') .'</h3>' .
+		'<p>' . __( 'This simple plugin allows you to chose how you add users to your site. Traditionally, a Multisite network requires you to either manually add users to your site, or to have the Network Admin configure the Network so all new users are added. Sometimes, you want more.', 'join-my-multisite' ) . '</p>' .
+		'<p>' . __( 'There are three basic options to this plugin, and by default it\'s set to keep things exactly as they are today: Users must be manually added to your site. Only per-site admins can make changes, so you don\'t have to worry about your editors making changes.', 'join-my-multisite' ) . '</p>'
 		
 		));
     
@@ -51,38 +51,38 @@ if ($screen->id == 'users_page_jmm') {
     // Options
     $screen->add_help_tab( array(
 		'id'      => 'jmm-menu-membership-options',
-		'title'   => __('Membership', 'helfjmm'),
+		'title'   => __('Membership', 'join-my-multisite'),
 		'content' =>
-		'<h3>' . __('Membership Options', 'helfjmm') .'</h3>' .
+		'<h3>' . __('Membership Options', 'join-my-multisite') .'</h3>' .
 		'<ul> 
-		      <li><strong>'. __('Auto: ', 'helfjmm') . '</strong>' . __('Auto-Add signed in users to this site when they visit.', 'helfjmm') . '</li>
-		      <li><strong>'. __('Manual: ', 'helfjmm') . '</strong>' . __('Allow signed in users to join via a widget or the shortcode <code>[join-this-site]</code>.', 'helfjmm') . '</li>
-		      <li><strong>'. __('None: ', 'helfjmm') . '</strong>' . __('Don\'t allow new users to add themselves this site, add them manually.', 'helfjmm') . '</li>
+		      <li><strong>'. __('Auto: ', 'join-my-multisite') . '</strong>' . __('Auto-Add signed in users to this site when they visit.', 'join-my-multisite') . '</li>
+		      <li><strong>'. __('Manual: ', 'join-my-multisite') . '</strong>' . __('Allow signed in users to join via a widget or the shortcode <code>[join-this-site]</code>.', 'join-my-multisite') . '</li>
+		      <li><strong>'. __('None: ', 'join-my-multisite') . '</strong>' . __('Don\'t allow new users to add themselves this site, add them manually.', 'join-my-multisite') . '</li>
         </ul>' .
-		'<p>' . __( 'If don\'t want anything to change, then you can leave this plugin alone (i.e. on "None").', 'helfjmm' ) . '</p>' .
-		'<p>' . __( 'Regardless of membership options, you can still use the Per Site Registration page.', 'helfjmm' ) . '</p>' 
+		'<p>' . __( 'If don\'t want anything to change, then you can leave this plugin alone (i.e. on "None").', 'join-my-multisite' ) . '</p>' .
+		'<p>' . __( 'Regardless of membership options, you can still use the Per Site Registration page.', 'join-my-multisite' ) . '</p>' 
 		));
 		
     // Options
     $screen->add_help_tab( array(
 		'id'      => 'jmm-menu-role-options',
-		'title'   => __('New User Role', 'helfjmm'),
+		'title'   => __('New User Role', 'join-my-multisite'),
 		'content' =>
-		'<h3>' . __('New User Default Role Options', 'helfjmm') .'</h3>' .
-		'<p>' . __( 'This is a simple drop-down for what role new users should have. It defaults to Subscriber.', 'helfjmm' ) . '</p>' 
+		'<h3>' . __('New User Default Role Options', 'join-my-multisite') .'</h3>' .
+		'<p>' . __( 'This is a simple drop-down for what role new users should have. It defaults to Subscriber.', 'join-my-multisite' ) . '</p>' 
 	  ));
 
     // Options
     $screen->add_help_tab( array(
 		'id'      => 'jmm-menu-shortcode-options',
-		'title'   => __('Per Site Registration', 'helfjmm'),
+		'title'   => __('Per Site Registration', 'join-my-multisite'),
 		'content' =>
-		'<p><em>' . __('This feature is only available if your network admin has allowed registrations.', 'helfjmm') .'</em></p>' .
-		'<h3>' . __('Setup', 'helfjmm') .'</h3>' .
-		'<p>' . __('Create a top-level page (i.e. domain.com/pagename/) and insert the following shortcode:', 'helfjmm') .'</p>' .
+		'<p><em>' . __('This feature is only available if your network admin has allowed registrations.', 'join-my-multisite') .'</em></p>' .
+		'<h3>' . __('Setup', 'join-my-multisite') .'</h3>' .
+		'<p>' . __('Create a top-level page (i.e. domain.com/pagename/) and insert the following shortcode:', 'join-my-multisite') .'</p>' .
 		'<p><code>[join-my-multisite]</code></p>' .
-		'<p>' . __( 'Come back to this page and check the box to turn allow for per-site registration. You then select a page from the drop-down list of pages.', 'helfjmm' ) . '</p>' .
-		'<p>' . __('If used with the \'Manual\' (i.e. widget) membership option, non-logged in users will see a button to direct them to your registration page.', 'helfjmm') .'</p>' 
+		'<p>' . __( 'Come back to this page and check the box to turn allow for per-site registration. You then select a page from the drop-down list of pages.', 'join-my-multisite' ) . '</p>' .
+		'<p>' . __('If used with the \'Manual\' (i.e. widget) membership option, non-logged in users will see a button to direct them to your registration page.', 'join-my-multisite') .'</p>' 
 	  ));
 }
 
