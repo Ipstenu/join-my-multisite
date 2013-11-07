@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Join My Multisite\n"
-"POT-Creation-Date: 2013-10-20 18:08-0800\n"
-"PO-Revision-Date: 2013-10-20 18:08-0800\n"
+"POT-Creation-Date: 2013-11-06 10:05-0800\n"
+"PO-Revision-Date: 2013-11-06 10:06-0800\n"
 "Last-Translator: Mika Epstein (Ipstenu) <ipstenu@ipstenu.org>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -13,11 +13,11 @@ msgstr ""
 "X-Poedit-Basepath: .\n"
 "X-Poedit-SearchPath-0: ..\n"
 
-#: ../joinmymultisite.php:58 ../admin/settings.php:45
+#: ../joinmymultisite.php:59 ../admin/settings.php:45
 msgid "Join My Multisite Settings"
 msgstr ""
 
-#: ../joinmymultisite.php:58 ../admin/help.php:36
+#: ../joinmymultisite.php:59 ../admin/help.php:36
 msgid "Join My Multisite"
 msgstr ""
 
@@ -81,7 +81,7 @@ msgstr ""
 msgid "Manual: "
 msgstr ""
 
-#: ../admin/help.php:59
+#: ../admin/help.php:59 ../admin/settings.php:69
 msgid ""
 "Allow signed in users to join via a widget or the shortcode <code>[join-this-"
 "site]</code>."
@@ -175,12 +175,6 @@ msgstr ""
 
 #: ../admin/settings.php:65
 msgid "None"
-msgstr ""
-
-#: ../admin/settings.php:69
-msgid ""
-"Allow signed in users to join via a widget or the shortcode <code>[join-my-"
-"multisite]</code>."
 msgstr ""
 
 #: ../admin/settings.php:73

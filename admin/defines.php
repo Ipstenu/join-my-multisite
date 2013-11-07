@@ -23,7 +23,7 @@ if (!defined('ABSPATH')) {
 
 define( 'JMM', true);
 
-load_plugin_textdomain( 'join-my-multisite', false, dirname( plugin_basename( __FILE__ ) ) . '/i18n/' );
+if ( !defined('join_my_multisite')) {define('join_my_multisite','join_my_multisite');} // Translation 
 
 defined('PLUGIN_DIR') || define('PLUGIN_DIR', realpath(dirname(__FILE__) . '/..'));
 
@@ -64,3 +64,4 @@ add_action('contextual_help', 'jmm_plugin_help', 10, 3);
 add_filter('plugin_row_meta', array('JMM', 'donate_link'), 10, 2);
 add_action('admin_menu', array('JMM', 'add_settings_page'), 10, 2);
 add_action('jmm_joinsite', array('JMM', 'join_site'), 10, 2);
+add_action('plugins_loaded', array('JMM', 'init'), 10, 2);
