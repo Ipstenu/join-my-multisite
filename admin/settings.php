@@ -117,8 +117,7 @@ if( isset($_POST['action']) && $_POST['action'] == 'update' ) {
                         <th scope="row"><?php _e('New User Default Role:', 'join-my-multisite'); ?></th>
                         <td>
                         <select name="jmm_role" id="<?php echo $jmm_options['role']; ?>">
-                        <option value="none"><?php _e( '-- None --', 'join-my-multisite' )?></option>
-                        <?php wp_dropdown_roles( get_option( 'default_user_role' ) ); ?>
+                        <?php wp_dropdown_roles( get_site_option( 'default_role' ) ); ?>
                         </select>
                         </td>
                     </tr>

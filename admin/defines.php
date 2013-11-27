@@ -36,7 +36,7 @@ if (!get_option( 'helfjmm_options' )) {
     update_option('helfjmm_options', $jmm_options);
 }
 
-/* 
+/*  
     Widgets
 */
 
