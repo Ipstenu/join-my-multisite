@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Join My Multisite\n"
-"POT-Creation-Date: 2013-11-06 10:05-0800\n"
-"PO-Revision-Date: 2013-11-06 10:06-0800\n"
+"POT-Creation-Date: 2013-11-27 15:21-0800\n"
+"PO-Revision-Date: 2013-11-27 15:21-0800\n"
 "Last-Translator: Mika Epstein (Ipstenu) <ipstenu@ipstenu.org>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -224,11 +224,7 @@ msgstr ""
 msgid "New User Default Role:"
 msgstr ""
 
-#: ../admin/settings.php:120
-msgid "-- None --"
-msgstr ""
-
-#: ../admin/settings.php:129
+#: ../admin/settings.php:128
 msgid "Update Options"
 msgstr ""
 
