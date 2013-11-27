@@ -33,7 +33,7 @@ if( isset($_POST['action']) && $_POST['action'] == 'update' ) {
             {$new_options['persite'] = '0';}
         if (isset($_POST['jmm_perpage'])) $new_options['perpage'] = $_POST['jmm_perpage'];
     update_option('helfjmm_options', $new_options);
-    update_option( 'default_user_role', $new_options['role']);
+    update_option( 'default_role', $new_options['role']);
 
     // Echo 
     ?><div id='message' class='updated fade'><p><strong><?php _e('Options Updated!', 'join-my-multisite'); ?></strong></p></div><?php
@@ -117,7 +117,7 @@ if( isset($_POST['action']) && $_POST['action'] == 'update' ) {
                         <th scope="row"><?php _e('New User Default Role:', 'join-my-multisite'); ?></th>
                         <td>
                         <select name="jmm_role" id="<?php echo $jmm_options['role']; ?>">
-                        <?php wp_dropdown_roles( get_site_option( 'default_role' ) ); ?>
+                        <?php wp_dropdown_roles( get_option( 'default_role' ) ); ?>
                         </select>
                         </td>
                     </tr>

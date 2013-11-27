@@ -36,9 +36,11 @@ When you have registration turned on, each site can chose to use 'Per Site Regis
 = 1.7.2 = 
 27 Nov, 2013
 
-* Removing 'None' role as an option, to prevent people from shooting themselves in the foot.
+* Removing 'None' role as an option, to prevent people from shooting themselves in the foot (props llocally)
+* Fixing default_user_role to default_role (props llocally)
 * Translation improvement on help screen
 * Clarifying some BuddyPress things
+* Gobble gobble
 
 = 1.7.1 =
 07 Nov, 2013

@@ -23,7 +23,7 @@ if (!defined('ABSPATH')) {
 
 /* The registration magic */
 function jmm_activate_user( $user_id, $password, $meta ) {
-    add_user_to_blog( $blog_id, $user_id, get_option( 'default_user_role' ) );
+    add_user_to_blog( $blog_id, $user_id, get_option( 'default_role' ) );
 }
 add_action( 'wpmu_activate_user', 'jmm_activate_user', 10, 3 );
 
