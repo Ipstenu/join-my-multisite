@@ -23,6 +23,7 @@ if (!defined('ABSPATH')) {
 
 /* The registration magic */
 function jmm_activate_user( $user_id, $password, $meta ) {
+    global $blog_id;
     add_user_to_blog( $blog_id, $user_id, get_option( 'default_role' ) );
 }
 add_action( 'wpmu_activate_user', 'jmm_activate_user', 10, 3 );
@@ -57,7 +58,13 @@ function jmm_shortcode_func( $atts, $content = null ) {
 
 // [join-this-site] - no params
 function jmm_shortcode_thissite_func( $atts, $content = null ) {
-    $jmm_options = get_option( 'helfjmm_options' );    
+    $jmm_options = get_option( 'helfjmm_options' );
+
+if( isset($_POST['jmm-join-site']) || isset($_POST['join-site']) ){
+    // This is the magic sauce.
+    do_action('jmm_joinsite', array('JMM', 'join_site'));
+}
+
     if( !is_user_logged_in() ) {
 	    if ( get_option('users_can_register') == 1 ) {
 			// If user isn't logged in but we allow for registration....

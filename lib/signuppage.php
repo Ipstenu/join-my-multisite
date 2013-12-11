@@ -54,6 +54,7 @@ $wp_query->is_404 = false;
  */
 do_action( 'before_signup_form' );
 ?>
+
 <div id="jmm-content" class="widecolumn">
 <div class="mu_register">
 	
