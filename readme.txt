@@ -6,7 +6,7 @@ Tested up to: 4.0
 Stable tag: 1.7.5
 Donate link: https://store.halfelf.org/donate/
 
-Allow site admins to automatically add existing users to their site, or let users decide at the click a button.
+Allow site admins to automatically add existing users to their site, or let users decide at the click of a button.
 
 == Description ==
 
