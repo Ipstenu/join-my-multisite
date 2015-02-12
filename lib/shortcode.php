@@ -50,7 +50,7 @@ function jmm_shortcode_func( $atts, $content = null ) {
     add_action( 'wp_head', 'wp_no_robots' );
     $wp_query->is_404 = false;
     ob_start();
-    include_once( PLUGIN_DIR. '/lib/signuppage.php');
+    include_once( JMM_PLUGIN_DIR. '/lib/signuppage.php');
     $output_string = ob_get_contents();
     ob_end_clean();
     return $output_string;

@@ -2,8 +2,8 @@
 Contributors: Ipstenu
 Tags: multisite, wpmu, registration, users
 Requires at least: 3.7
-Tested up to: 4.0
-Stable tag: 1.7.5
+Tested up to: 4.2
+Stable tag: 1.7.6
 Donate link: https://store.halfelf.org/donate/
 
 Allow site admins to automatically add existing users to their site, or let users decide at the click of a button.
@@ -24,7 +24,7 @@ By activating this plugin, you give your Site Admins the following options:
 
 It's really that simple! 
 
-If they decide to auto-add, then any time a logged in user visits a site, they will be magically added to that site. If they decide to use a 'Join This Site' button, then they can customize the button message text for users who are logged in but not members, not logged in, or already members. Don't worry, if you have registation turned off, they won't see the 'register' button.
+If they decide to auto-add, then any time a logged in user visits a site, they will be magically added to that site. If they decide to use a 'Join This Site' button, then they can customize the button message text for users who are logged in but not members, not logged in, or already members. Don't worry, if you have registration turned off, they won't see the 'register' button.
 
 When you have registration turned on, each site can chose to use 'Per Site Registration,' which will allow them to create a page on their site just for registrations and signups. To display the signup code, just put <code>[join-my-multisite]</code> on the page.
 
@@ -32,6 +32,11 @@ When you have registration turned on, each site can chose to use 'Per Site Regis
 * [Donate](https://store.halfelf.org/donate/)
 
 ==Changelog==
+
+= 1.7.6 =
+12 February, 2014
+
+* Renaming PLUGIN_DIR constant to JMM_PLUGIN_DIR to prevent conflicts. That was stupid of me. (props <a href="https://wordpress.org/support/topic/plugin-conflict-due-to-plugin_dir-constant?replies=2">Boyington</a>)
 
 = 1.7.5 =
 4 September, 2014

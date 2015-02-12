@@ -29,7 +29,7 @@ $wp_query->is_404 = false;
  *
  * @since MU
  */
-?>
+	?>
 	<style type="text/css">
 		.mu_register { width: 90%; margin:0 auto; }
 		.mu_register form { margin-top: 2em; }
@@ -45,6 +45,7 @@ $wp_query->is_404 = false;
 		.mu_register label.checkbox { display:inline; }
 		.mu_register .mu_alert { font-weight:700; padding:10px; color:#333333; background:#ffffe0; border:1px solid #e6db55; }
 	</style>
+
 <?php
 
 /**
@@ -68,7 +69,6 @@ do_action( 'before_signup_form' );
  * @param string $user_email The entered email address
  * @param array $errors
  */
-
 function show_user_form($user_name = '', $user_email = '', $errors = '') {
 	// User name
 	echo '<label for="user_name">' . __('Username:', 'join-my-multisite') . '</label>';
@@ -158,13 +158,14 @@ function signup_user($user_name = '', $user_email = '', $errors = '') {
 	$user_name = $filtered_results['user_name'];
 	$user_email = $filtered_results['user_email'];
 	$errors = $filtered_results['errors'];
+	
 	?>
 
 	<h2><?php printf( __( 'Create your account on %s', 'join-my-multisite' ), $current_site->site_name ) ?></h2>
 	<form id="setupform" method="post" action="<?php echo $goto; ?>">
 		<input type="hidden" name="stage" value="validate-user-signup" />
 		<?php
-		//duplicate_hook
+		/** This action is documented in wp-signup.php */
 		do_action( 'signup_hidden_fields', 'validate-user' );
 		?>
 		<?php show_user_form($user_name, $user_email, $errors); ?>
@@ -181,32 +182,25 @@ function signup_user($user_name = '', $user_email = '', $errors = '') {
  *
  * @since MU
  *
- * @uses validate_user_form() to retrieve an array of the user data
- * @uses wpmu_signup_user() to signup the new user
- * @uses confirm_user_signup() to confirm the new user signup
  * @return bool True if new user signup was validated, false if error
  */
 function validate_user_signup() {
 	$result = validate_user_form();
-	extract($result);
+	$user_name = $result['user_name'];
+	$user_email = $result['user_email'];
+	$errors = $result['errors'];
 
 	if ( $errors->get_error_code() ) {
 		signup_user($user_name, $user_email, $errors);
 		return false;
 	}
 
-	if ( 'blog' == $_POST['signup_for'] ) {
-		signup_blog($user_name, $user_email);
-		return false;
-	}
-
-	//duplicate_hook
+	/** This filter is documented in wp-signup.php */
 	wpmu_signup_user( $user_name, $user_email, apply_filters( 'add_signup_meta', array() ) );
 
 	confirm_user_signup($user_name, $user_email);
 	return true;
 }
-
 
 /**
  * New user signup confirmation
@@ -256,7 +250,7 @@ if ( $active_signup == 'none' ) {
 	_e( 'Registration has been disabled.', 'join-my-multisite' );
 } elseif ( $active_signup == 'blog' && !is_user_logged_in() ) {
 	$login_url = site_url( 'wp-login.php?redirect_to=' . urlencode( get_permalink() ) );
-	echo sprintf( __( 'You must first <a href="%s">log in</a>, and then you can join this site.', 'helmjmm' ), $login_url );
+	echo sprintf( __( 'You must first <a href="%s">log in</a>, and then you can join this site.', 'join-my-multisite' ), $login_url );
 } else {
 	$stage = isset( $_POST['stage'] ) ?  $_POST['stage'] : 'default';
 	switch ( $stage ) {

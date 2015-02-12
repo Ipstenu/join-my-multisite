@@ -25,7 +25,7 @@ define( 'JMM', true);
 
 if ( !defined('join_my_multisite')) {define('join_my_multisite','join_my_multisite');} // Translation 
 
-defined('PLUGIN_DIR') || define('PLUGIN_DIR', realpath(dirname(__FILE__) . '/..'));
+defined('JMM_PLUGIN_DIR') || define('JMM_PLUGIN_DIR', realpath(dirname(__FILE__) . '/..'));
 
 if (!get_option( 'helfjmm_options' )) {
     $jmm_options = get_option( 'helfjmm_options' );
@@ -42,7 +42,7 @@ if (!get_option( 'helfjmm_options' )) {
 
 // Registers our widget.
 function jmm_load_add_user_widgets() {
-    include_once( PLUGIN_DIR . '/lib/widget.php');
+    include_once( JMM_PLUGIN_DIR . '/lib/widget.php');
 }
 
 // This is what controls how people get added.
@@ -51,11 +51,11 @@ function jmm_load_add_user_widgets() {
     if ($jmm_options['type'] == 2) { add_action( 'widgets_init', 'jmm_load_add_user_widgets' ); }
 
 // Shortcode
-include_once( PLUGIN_DIR . '/lib/shortcode.php');
+include_once( JMM_PLUGIN_DIR . '/lib/shortcode.php');
 
 // The Help Screen
 function jmm_plugin_help() {
-	include_once( PLUGIN_DIR . '/admin/help.php' );
+	include_once( JMM_PLUGIN_DIR . '/admin/help.php' );
 }
 add_action('contextual_help', 'jmm_plugin_help', 10, 3);
 
