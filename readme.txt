@@ -34,7 +34,7 @@ When you have registration turned on, each site can chose to use 'Per Site Regis
 ==Changelog==
 
 = 1.7.6 =
-12 February, 2014
+12 February, 2015
 
 * Renaming PLUGIN_DIR constant to JMM_PLUGIN_DIR to prevent conflicts. That was stupid of me. (props <a href="https://wordpress.org/support/topic/plugin-conflict-due-to-plugin_dir-constant?replies=2">Boyington</a>)
 
