@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Join My Multisite\n"
 "POT-Creation-Date: 2015-05-12 10:18+0100\n"
-"PO-Revision-Date: 2015-05-12 11:18+0100\n"
+"PO-Revision-Date: 2015-05-12 14:48+0100\n"
 "Last-Translator: Alessandro Massasso <alessandro.massasso@drivek.it>\n"
 "Language-Team: \n"
 "Language: it_IT\n"
@@ -51,15 +51,16 @@ msgstr "Nessuno"
 #: ../admin/settings.php:68 ../admin/help.php:58
 msgid "Auto-Add signed in users to this site when they visit."
 msgstr ""
-"Aggiunti automaticamente a questo sito gli utenti registrati che lo visitano."
+"Aggiungere automaticamente a questo sito gli utenti registrati che lo "
+"visitano."
 
 #: ../admin/settings.php:69 ../admin/help.php:59
 msgid ""
 "Allow signed in users to join via a widget or the shortcode <code>[join-this-"
 "site]</code>."
 msgstr ""
-"Consenti agli utenti registrati di iscriversi via widget o con lo shortcode "
-"<code>[join-this-site]</code>."
+"Consentire agli utenti registrati di iscriversi via widget o con lo "
+"shortcode <code>[join-this-site]</code>."
 
 #: ../admin/settings.php:70 ../admin/help.php:60
 msgid "Don't allow new users to add themselves this site, add them manually."
@@ -303,53 +304,60 @@ msgid ""
 "We send your registration email to this address. (Double-check your email "
 "address before continuing.)"
 msgstr ""
+"Invieremo l'email di registrazione a questo indirizzo. (Controllare "
+"attentamente l'indirizzo email prima di proseguire.)"
 
 #: ../lib/signuppage.php:164
 #, php-format
 msgid "Create your account on %s"
-msgstr ""
+msgstr "Crea il tuo account su %s"
 
 #: ../lib/signuppage.php:175
 msgid "Signup"
-msgstr ""
+msgstr "Registrati"
 
 #: ../lib/signuppage.php:215
 #, php-format
 msgid "%s is your new username"
-msgstr ""
+msgstr "%s è il tuo nuovo username"
 
 #: ../lib/signuppage.php:216
 msgid ""
 "Before you can start using your new username, <strong>you must activate it</"
 "strong>."
 msgstr ""
+"Ma prima di poter inziare ad utilizzare il proprio nome utente "
+"<strong>bisogna attivarlo</strong>."
 
 #: ../lib/signuppage.php:217
 #, php-format
 msgid "Check your inbox at <strong>%s</strong> and click the link given."
 msgstr ""
+"Controlla la tua email su <strong>%s</strong> e fai clic sul link fornito.  "
 
 #: ../lib/signuppage.php:218
 msgid ""
 "If you do not activate your username within two days, you will have to sign "
 "up again."
 msgstr ""
+"Se non si attiva il proprio nome utente entro due giorni, occorrerà "
+"registrarsi nuovamente."
 
 #: ../lib/signuppage.php:237
 msgid "all"
-msgstr ""
+msgstr "tutte"
 
 #: ../lib/signuppage.php:238
 msgid "none"
-msgstr ""
+msgstr "nessuna"
 
 #: ../lib/signuppage.php:239
 msgid "blog"
-msgstr ""
+msgstr "blog"
 
 #: ../lib/signuppage.php:240
 msgid "user"
-msgstr ""
+msgstr "utenti"
 
 #: ../lib/signuppage.php:244
 #, php-format
@@ -358,57 +366,60 @@ msgid ""
 "registrations. To change or disable registration go to your <a href=\"%s"
 "\">Options page</a>."
 msgstr ""
+"Congratulazioni Amministratore del Network! Attualmente stai permettendo "
+"registrazioni di tipo: &#8220;%s&#8221;. Per modificare o disablitare il "
+"tipo di registrazione vai alla <a href=\"%s\">pagina delle opzioni</a>."
 
 #: ../lib/signuppage.php:250
 msgid "Registration has been disabled."
-msgstr ""
+msgstr "La registrazione è stata disabilitata."
 
 #: ../lib/signuppage.php:253
 #, php-format
 msgid ""
 "You must first <a href=\"%s\">log in</a>, and then you can join this site."
-msgstr ""
+msgstr "Devi effettuare il <a href=\"%s\">login</a> per visitare questo sito."
 
 #: ../lib/signuppage.php:261
 msgid "User registration has been disabled."
-msgstr ""
+msgstr "La registrazione utenti è disabilitata."
 
 #: ../lib/signuppage.php:276
 msgid "You are logged in already. No need to register again!"
-msgstr ""
+msgstr "Si è già fatto il login. Non serve registrarsi nuovamente!"
 
 #: ../lib/widget.php:76
 msgid "Log in"
-msgstr ""
+msgstr "Login"
 
 #: ../lib/widget.php:122
 msgid "Title:"
-msgstr ""
+msgstr "Titolo:"
 
 #: ../lib/widget.php:128
 msgid "Button Text"
-msgstr ""
+msgstr "Testo del pulsante"
 
 #: ../lib/widget.php:132
 msgid "Not registered on the network:"
-msgstr ""
+msgstr "Non registrati nel network:"
 
 #: ../lib/widget.php:137
 msgid "Show in-line login form."
-msgstr ""
+msgstr "Mostra login form in-line."
 
 #: ../lib/widget.php:142
 msgid "Not a member of this site:"
-msgstr ""
+msgstr "Non membri di questo sito:"
 
 #: ../lib/widget.php:148
 msgid "Welcome Message Text"
-msgstr ""
+msgstr "Messaggio di benvenuto"
 
 #: ../lib/widget.php:151
 msgid "Existing members:"
-msgstr ""
+msgstr "Membri esistenti:"
 
 #: ../lib/widget.php:156
 msgid "New member (shown on signup):"
-msgstr ""
+msgstr "Nuovo membro (mostrato in registrazione):"
