@@ -1,0 +1,414 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Join My Multisite\n"
+"POT-Creation-Date: 2015-05-12 10:18+0100\n"
+"PO-Revision-Date: 2015-05-12 11:18+0100\n"
+"Last-Translator: Alessandro Massasso <alessandro.massasso@drivek.it>\n"
+"Language-Team: \n"
+"Language: it_IT\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.5.4\n"
+"X-Poedit-KeywordsList: _;gettext;gettext_noop;_e;__;esc_attr_e;_n;_x\n"
+"X-Poedit-Basepath: .\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-SearchPath-0: ..\n"
+
+#: ../joinmymultisite.php:59 ../admin/settings.php:45
+msgid "Join My Multisite Settings"
+msgstr "Impostazioni Join My Multisite"
+
+#: ../joinmymultisite.php:59 ../admin/help.php:36
+msgid "Join My Multisite"
+msgstr ""
+
+#: ../admin/settings.php:39
+msgid "Options Updated!"
+msgstr "Impostazioni aggiornate!"
+
+#: ../admin/settings.php:56
+msgid "Select a membership type and a default role."
+msgstr "Seleziona un tipo di membership e un ruolo predefinito"
+
+#: ../admin/settings.php:61
+msgid "Membership:"
+msgstr "Membership:"
+
+#: ../admin/settings.php:63
+msgid "Automatic"
+msgstr "Automatico"
+
+#: ../admin/settings.php:64
+msgid "Manual"
+msgstr "Manuale"
+
+#: ../admin/settings.php:65
+msgid "None"
+msgstr "Nessuno"
+
+#: ../admin/settings.php:68 ../admin/help.php:58
+msgid "Auto-Add signed in users to this site when they visit."
+msgstr ""
+"Aggiunti automaticamente a questo sito gli utenti registrati che lo visitano."
+
+#: ../admin/settings.php:69 ../admin/help.php:59
+msgid ""
+"Allow signed in users to join via a widget or the shortcode <code>[join-this-"
+"site]</code>."
+msgstr ""
+"Consenti agli utenti registrati di iscriversi via widget o con lo shortcode "
+"<code>[join-this-site]</code>."
+
+#: ../admin/settings.php:70 ../admin/help.php:60
+msgid "Don't allow new users to add themselves this site, add them manually."
+msgstr ""
+"Non consentire ai nuovi utenti di iscriversi a questo sito, ma aggiungili "
+"manualmente."
+
+#: ../admin/settings.php:73
+msgid ""
+"To allow users to register via a button on any page or post on your site, "
+"use the shortcode <code>[join-this-site]</code> - Simply insert it and "
+"you're good!"
+msgstr ""
+"Per consentire agli utenti di registrarsi tramite un pulsante in una pagina "
+"o in un post del sito, usa lo shortcode <code>[join-this-site]</code>: "
+"semplicemente inseriscilo nel contenuto, e hai fatto!"
+
+#: ../admin/settings.php:85
+msgid "Registration:"
+msgstr "Registrazioni:"
+
+#: ../admin/settings.php:87
+msgid "Per-Site"
+msgstr "Per Sito"
+
+#: ../admin/settings.php:89
+msgid ""
+"Check this box if you want to use a shortcode to customize per-site "
+"registration. If unchecked, registrations will be sent to the network "
+"registration page."
+msgstr ""
+"Seleziona questo box se vuoi usare uno shortcode per personalizzare la "
+"registrazione per singolo sito. Se non selezionato, le registrazioni vengono "
+"dirottate sulla pagina di registrazione del network."
+
+#: ../admin/settings.php:99
+msgid "Join My Multisite needs your attention:"
+msgstr "Join My Multisite richiede la tua attenzione:"
+
+#: ../admin/settings.php:99
+msgid ""
+"You've selected custom registration but have not selected a page to use. No "
+"one will be able to register for your site until you fix this."
+msgstr ""
+"Hai selezionato registrazione personalizzata ma non ha indicato la pagina da "
+"usare. Nessuno potrà registrarsi al sito finché non completi questa "
+"operazione."
+
+#: ../admin/settings.php:103
+msgid "&mdash; Select &mdash;"
+msgstr "&mdash; Seleziona &mdash;"
+
+#: ../admin/settings.php:108
+msgid ""
+"Users who are not logged in will be redirected to the perpage you select "
+"from the dropdowns. Only top-level pages may be used. Use the following "
+"shortcode to display the login form:"
+msgstr ""
+"Gli utenti non loggati saranno reindirizzati alla pagina che scegli nei menu "
+"a tendina. Possono essere usate solo pagine principali (senza pagina "
+"genitore). Usa il seguente shortcode per mostrare il form di login:"
+
+#: ../admin/settings.php:117
+msgid "New User Default Role:"
+msgstr "Ruolo predefinito per nuovi utenti:"
+
+#: ../admin/settings.php:128
+msgid "Update Options"
+msgstr "Aggiorna Impostazioni"
+
+#: ../admin/help.php:34
+msgid "Overview"
+msgstr "Sommario"
+
+#: ../admin/help.php:37
+msgid ""
+"This simple plugin allows you to chose how you add users to your site. "
+"Traditionally, a Multisite network requires you to either manually add users "
+"to your site, or to have the Network Admin configure the Network so all new "
+"users are added. Sometimes, you want more."
+msgstr ""
+"Questo semplice plugin ti permette di scegliere come aggiungere utenti al "
+"tuo sito. Normalmente, un network Multisite richiede che tu inserisca "
+"manualmente gli utenti al sito o che l'amministratore configuri il Network "
+"in modo che siano aggiunti tutti i nuovi utenti. A volte, potresti volere "
+"più flessibilità."
+
+#: ../admin/help.php:38
+msgid ""
+"There are three basic options to this plugin, and by default it's set to "
+"keep things exactly as they are today: Users must be manually added to your "
+"site. Only per-site admins can make changes, so you don't have to worry "
+"about your editors making changes."
+msgstr ""
+"Questo plugin prevede tre opzioni di scelta, e l'impostazione predefinita è "
+"quella già esistente: gli utenti devono essere aggiunti manualmente al tuo "
+"sito. Solo gli amministratori dei singoli siti possono modificare questa "
+"impostazione, così non devi preoccuparti che altri utenti editor possano "
+"modificare le cose."
+
+#: ../admin/help.php:44
+msgid "Links:"
+msgstr "Link:"
+
+#: ../admin/help.php:45
+msgid "Support"
+msgstr "Supporto"
+
+#: ../admin/help.php:46
+msgid "WordPress Roles & Capabilities"
+msgstr "Ruoli & Capacità di WordPress"
+
+#: ../admin/help.php:47
+msgid "Plugin: Multisite User Management"
+msgstr "Plugin: Multisite User Management"
+
+#: ../admin/help.php:48
+msgid "Advice On Running a Membership Site"
+msgstr "Suggerimento per realizzare un sito Membership"
+
+#: ../admin/help.php:54
+msgid "Membership"
+msgstr "Membership"
+
+#: ../admin/help.php:56
+msgid "Membership Options"
+msgstr "Impostazioni Membership"
+
+#: ../admin/help.php:58
+msgid "Auto: "
+msgstr "Automatico:"
+
+#: ../admin/help.php:59
+msgid "Manual: "
+msgstr "Manuale:"
+
+#: ../admin/help.php:60
+msgid "None: "
+msgstr "Nessuno:"
+
+#: ../admin/help.php:62
+msgid ""
+"If don't want anything to change, then you can leave this plugin alone (i.e. "
+"on \"None\")."
+msgstr ""
+"Se non vuoi cambiare nulla, puoi lasciar lavorare questo plugin da solo (es. "
+"\"Nessuno\")."
+
+#: ../admin/help.php:63
+msgid ""
+"Regardless of membership options, you can still use the Per Site "
+"Registration page."
+msgstr ""
+"Indipendentemente dalle impostazioni di Membership, puoi sempre usare la "
+"pagina di Registrazione Per Sito."
+
+#: ../admin/help.php:69
+msgid "New User Role"
+msgstr "Ruolo per Nuovi Utenti"
+
+#: ../admin/help.php:71
+msgid "New User Default Role Options"
+msgstr "Impostazioni per il Ruolo predefinito per Nuovi Utenti"
+
+#: ../admin/help.php:72
+msgid ""
+"This is a simple drop-down for what role new users should have. It defaults "
+"to Subscriber."
+msgstr ""
+"Scegli il ruolo predefinito per i nuovi utenti tra i ruoli disponibili in "
+"questo menu a tendina. Il predefinito è Sottoscrittore."
+
+#: ../admin/help.php:78
+msgid "Per Site Registration"
+msgstr "Registrazione Per Sito"
+
+#: ../admin/help.php:80
+msgid ""
+"This feature is only available if your network admin has allowed "
+"registrations."
+msgstr ""
+"Questa funzione è disponibile solo se l'amministratore del Network ha "
+"abilitato le registrazioni."
+
+#: ../admin/help.php:81
+msgid "Setup"
+msgstr "Setup"
+
+#: ../admin/help.php:82
+msgid ""
+"Create a top-level page (i.e. domain.com/pagename/) and insert the following "
+"shortcode:"
+msgstr ""
+"Crea una pagina principale (es. domain.com/nome-pagina/) e inserisci il "
+"seguente shortcode:"
+
+#: ../admin/help.php:84
+msgid ""
+"Come back to this page and check the box to turn allow for per-site "
+"registration. You then select a page from the drop-down list of pages."
+msgstr ""
+"Torna in questa pagina e seleziona questo box per abilitare la registrazione "
+"per sito. Poi devi selezionare una pagina tra quelle disponibili nel menu a "
+"tendina."
+
+#: ../admin/help.php:85
+msgid ""
+"If used with the 'Manual' (i.e. widget) membership option, non-logged in "
+"users will see a button to direct them to your registration page."
+msgstr ""
+"Se usato con l'impostazione Membership 'Manuale' (es. widget), gli utenti "
+"non loggati vedranno un pulsante che li reindirizzerà alla pagina di "
+"registrazione scelta."
+
+#: ../lib/shortcode.php:81
+msgid "Register For An Account"
+msgstr "Registra un Account"
+
+#: ../lib/shortcode.php:89
+msgid "Join This Site"
+msgstr "Iscritivi al sito"
+
+#: ../lib/shortcode.php:94
+msgid "Howdy, Member!"
+msgstr "Benvenuto!"
+
+#: ../lib/signuppage.php:74
+msgid "Username:"
+msgstr "Username:"
+
+#: ../lib/signuppage.php:79
+msgid "(Must be at least 4 characters, letters and numbers only.)"
+msgstr "(Deve essere di almeno 4 caratteri, solo lettere e numeri)"
+
+#: ../lib/signuppage.php:82
+msgid "Email&nbsp;Address:"
+msgstr "Indirizzo&nbsp;Email:"
+
+#: ../lib/signuppage.php:86
+msgid ""
+"We send your registration email to this address. (Double-check your email "
+"address before continuing.)"
+msgstr ""
+
+#: ../lib/signuppage.php:164
+#, php-format
+msgid "Create your account on %s"
+msgstr ""
+
+#: ../lib/signuppage.php:175
+msgid "Signup"
+msgstr ""
+
+#: ../lib/signuppage.php:215
+#, php-format
+msgid "%s is your new username"
+msgstr ""
+
+#: ../lib/signuppage.php:216
+msgid ""
+"Before you can start using your new username, <strong>you must activate it</"
+"strong>."
+msgstr ""
+
+#: ../lib/signuppage.php:217
+#, php-format
+msgid "Check your inbox at <strong>%s</strong> and click the link given."
+msgstr ""
+
+#: ../lib/signuppage.php:218
+msgid ""
+"If you do not activate your username within two days, you will have to sign "
+"up again."
+msgstr ""
+
+#: ../lib/signuppage.php:237
+msgid "all"
+msgstr ""
+
+#: ../lib/signuppage.php:238
+msgid "none"
+msgstr ""
+
+#: ../lib/signuppage.php:239
+msgid "blog"
+msgstr ""
+
+#: ../lib/signuppage.php:240
+msgid "user"
+msgstr ""
+
+#: ../lib/signuppage.php:244
+#, php-format
+msgid ""
+"Greetings Network Administrator! You are currently allowing &#8220;%s&#8221; "
+"registrations. To change or disable registration go to your <a href=\"%s"
+"\">Options page</a>."
+msgstr ""
+
+#: ../lib/signuppage.php:250
+msgid "Registration has been disabled."
+msgstr ""
+
+#: ../lib/signuppage.php:253
+#, php-format
+msgid ""
+"You must first <a href=\"%s\">log in</a>, and then you can join this site."
+msgstr ""
+
+#: ../lib/signuppage.php:261
+msgid "User registration has been disabled."
+msgstr ""
+
+#: ../lib/signuppage.php:276
+msgid "You are logged in already. No need to register again!"
+msgstr ""
+
+#: ../lib/widget.php:76
+msgid "Log in"
+msgstr ""
+
+#: ../lib/widget.php:122
+msgid "Title:"
+msgstr ""
+
+#: ../lib/widget.php:128
+msgid "Button Text"
+msgstr ""
+
+#: ../lib/widget.php:132
+msgid "Not registered on the network:"
+msgstr ""
+
+#: ../lib/widget.php:137
+msgid "Show in-line login form."
+msgstr ""
+
+#: ../lib/widget.php:142
+msgid "Not a member of this site:"
+msgstr ""
+
+#: ../lib/widget.php:148
+msgid "Welcome Message Text"
+msgstr ""
+
+#: ../lib/widget.php:151
+msgid "Existing members:"
+msgstr ""
+
+#: ../lib/widget.php:156
+msgid "New member (shown on signup):"
+msgstr ""
