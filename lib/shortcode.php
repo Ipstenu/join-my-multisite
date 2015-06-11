@@ -31,7 +31,7 @@ add_action( 'wpmu_activate_user', 'jmm_activate_user', 10, 3 );
 // Redirect wp-signup.php
 function jmm_signup_location($val) {
 	$jmm_options = get_option( 'helfjmm_options' );
-	if ( !is_null($jmm_options['perpage']) && $jmm_options['perpage'] != "XXXXXX"  )
+	if ( !is_null($jmm_options['perpage']) && $jmm_options['perpage'] != "XXXXXX" && !is_admin() )
 		{ return get_permalink($jmm_options['perpage']); }
 	return $val;
 }

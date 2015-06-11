@@ -22,16 +22,20 @@ if (!defined('ABSPATH')) {
 }
  
 // In lieu of options.php....
-if( isset($_POST['action']) && $_POST['action'] == 'update' ) {
-
+if ( ! empty( $_POST ) && check_admin_referer( 'update', 'helfjmm_update_options' ) ) {
     $new_options = get_option( 'helfjmm_options' );
-        if (isset($_POST['jmm_type'])) $new_options['type'] = $_POST['jmm_type']; 
-        if (isset($_POST['jmm_role'])) $new_options['role'] = $_POST['jmm_role'];
-        if (isset($_POST['jmm_persite'])) 
-            { $new_options['persite'] = $_POST['jmm_persite'];}
-            else 
-            {$new_options['persite'] = '0';}
+
+    if ( !empty($_POST['jmm_type']) ) $new_options['type'] = absint($_POST['jmm_type']);
+    
+    if ( !empty($_POST['jmm_role']) && array_key_exists( sanitize_text_field( $_POST['jmm_role'] ) , get_editable_roles() ) ) $new_options['role'] = $_POST['jmm_role'];
+    
+    if ( !empty($_POST['jmm_persite']) && absint($_POST['jmm_persite']) == '1' ) { 
+		$new_options['persite'] = '1' ;
+	} else {
+		$new_options['persite'] = '0';
+	}
         if (isset($_POST['jmm_perpage'])) $new_options['perpage'] = $_POST['jmm_perpage'];
+
     update_option('helfjmm_options', $new_options);
     update_option( 'default_role', $new_options['role']);
 
@@ -45,14 +49,13 @@ if( isset($_POST['action']) && $_POST['action'] == 'update' ) {
         <h2><?php _e("Join My Multisite Settings", 'join-my-multisite'); ?></h2>
         
         <?php 
-        $jmm_options = get_option( 'helfjmm_options' );    
+        $jmm_options = get_option( 'helfjmm_options' );
         ?>
     
         <form method="post" action="">
-            <input type="hidden" name="action" value="update" />
             <input type="hidden" name="page_options" value="helfjmm_options" />
-            <?php wp_nonce_field('update-options'); ?>
-    
+            <?php wp_nonce_field('update', 'helfjmm_update_options'); ?>
+
             <p><?php _e('Select a membership type and a default role.', 'join-my-multisite'); ?></p>
             
             <table class="form-table">
