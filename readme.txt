@@ -2,7 +2,7 @@
 Contributors: Ipstenu
 Tags: multisite, wpmu, registration, users
 Requires at least: 3.7
-Tested up to: 4.3
+Tested up to: 4.4
 Stable tag: 1.7.8
 Donate link: https://store.halfelf.org/donate/
 
