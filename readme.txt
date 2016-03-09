@@ -1,9 +1,9 @@
 === Join My Multisite ===
 Contributors: Ipstenu
-Tags: multisite, wpmu, registration, users
+Tags: multisite, registration, users
 Requires at least: 3.7
-Tested up to: 4.4
-Stable tag: 1.7.8
+Tested up to: 4.5
+Stable tag: 1.8
 Donate link: https://store.halfelf.org/donate/
 
 Allow site admins to automatically add existing users to their site, or let users decide at the click of a button.
@@ -31,144 +31,6 @@ When you have registration turned on, each site can chose to use 'Per Site Regis
 * [Plugin Site](http://halfelf.org/plugins/join-my-multisite/)
 * [Donate](https://store.halfelf.org/donate/)
 
-==Changelog==
-
-= 1.7.8 =
-
-06 July, 2015
-
-* Updating widgets to be [compatible with PHP 5 constructors](https://markjaquith.wordpress.com/2009/09/29/using-php5-object-constructors-in-wp-widget-api/). Props chriscct7.
-
-= 1.7.7 =
-11 June, 2015
-
-* Shortcode's URL filter should only run on the front end, since otherwise it breaks per-site adding new sites from My Sites (props <a href="https://wordpress.org/support/topic/create-a-new-site-links-to-perpage-custom-registration-page">Boyington</a>)
-* Security Fix: Sanitizing and validating _POST calls properly to prevent evil.
-* Security Fix: Implementing nonces.
-
-= 1.7.6 =
-12 February, 2015
-
-* Renaming PLUGIN_DIR constant to JMM_PLUGIN_DIR to prevent conflicts. That was stupid of me. (props <a href="https://wordpress.org/support/topic/plugin-conflict-due-to-plugin_dir-constant?replies=2">Boyington</a>)
-
-= 1.7.5 =
-4 September, 2014
-
-* Fixing static warning (props <a href="https://wordpress.org/support/topic/php-warnings-non-static-function?replies=1#post-5955721">Justin Fletcher</a>)
-* 4.0 compat
-
-= 1.7.4 =
-15 May, 2014
-
-* P tags around widgets
-
-= 1.7.3 = 
-10 Dec, 2013
-
-* Fixed the broken join-this-site shortcode
-* Corrected error on registration page calling blog_id without setting it
-* Made reindeer and Macabee cookies
-
-= 1.7.2 = 
-27 Nov, 2013
-
-* Removing 'None' role as an option, to prevent people from shooting themselves in the foot (props llocally)
-* Fixing default_user_role to default_role (props llocally)
-* Translation improvement on help screen
-* Clarifying some BuddyPress things
-* Gobble gobble
-
-= 1.7.1 =
-07 Nov, 2013
-
-* Broke translations like a boss. Fixed.
-
-= 1.7 =
-06 Nov, 2013
-
-* Fixing redirect error with signups (thanks <a href="http://wordpress.org/support/topic/error-500-on-wp-signupphp">bottapress</a>)
-* Fixed Translations to be ready for Language Packs (see <a href="http://ottopress.com/2013/language-packs-101-prepwork/">Otto's post on prepwork to understand why</a>)
-* Cleaned up some directions
-* Resolved minor errors
-
-= 1.6.1 =
-20 Oct, 2013
-
-* Adding translation to Nav Menu per suggestion by <a href="http://wordpress.org/support/topic/translation-again?replies=2#post-4750279">bottapress</a>
-* Updated to match changes and inline docs in 3.7
-* Changing page to match changes in http://core.trac.wordpress.org/ticket/18186 for WP 3.7
-
-= 1.6 =
-11 July, 2013
-
-* Fixed shortcode output to work with text around it. Remember kids, shortcodes return, not echo. (also using ob_start etc to properly catch things in a better way).
-
-= 1.5.4 =
-5 July, 2013
-
-* Wrong shortcode mentioned in in-line doc
-* Better catching of the possible registration options (if users can register new blogs, they're asked to sign in and then join the site)
-
-= 1.5.3 =
-19 April, 2013
-
-* Cleanup of settings and defines to show a better alert when you don't have everything set up.
-* Corrected if-statement for display on admin end.
-
-= 1.5.2 =
-9 April, 2013
-
-* New shortcode: <code>[join-this-site]</code> (was a secret, now is not!)
-* Changed div content to div jmm-content, so you can style it how you want, and not break with weird themes - kudos @madri2
-
-= 1.5.1 =
-21 March, 2013
-
-* Added before_signup_form() - kudos @madri2
-* Redirect wp-signup to the page you defined. - kudos @madri2
-* Check for it you're actually running Multisite (seriously, people?)
-
-= 1.5 = 
-15 March, 2013
-
-* Translation cleanup
-* Fixed empty param error
-
-= 1.4.1 = 
-6 Feb, 2013
-
-* Minor typo on pages causing silly backend error. Bad copy/pasta on my part.
-
-= 1.4 =
-5 Feb, 2013 by Ipstenu
-
-* More translation tweaks by dokkaebi
-* Fixing issues with debug errors (nothing was broken, just ugly)
-
-= 1.3 =
-
-21 November, 2012 by Ipstenu
-
-* Fixed uninstall issue
-
-= 1.2 =
-
-13 November, 2012 by Ipstenu
-
-* Fixed issues as noted by [dokkaebi](http://wordpress.org/support/topic/problems-and-workarounds-using-v-11-on-wordpress-342)
-* Added in option for login form
-
-= 1.1 =
-12 October, 2012 by Ipstenu
-
-* Added in a per-site registration page option.
-* Corrected bug where non-network admins couldn't make changes
-
-=  1.0 =
-07 October, 2012 by Ipstenu
-
-* First completed version.
-
 == Installation ==
 
 This plugin is only network activatable. Configuration is done per-site via a page in the 'Users' section.
@@ -178,10 +40,6 @@ This plugin is only network activatable. Configuration is done per-site via a pa
 1. Menu
 1. Widget
 1. Sample per-site registration front end
-
-== Upgrade Notice ==
-
-11-June 2015: Security update to sanitize post calls. This would have been tricky for people to take advantage of, but it doesn't hurt to be safe, right? Update please.
 
 == Frequently Asked Questions ==
 
@@ -234,3 +92,33 @@ As far as the BuddyPress basics go (one instance, network activated) it seems to
 = Can I set global options? =
 
 At this time, no. I don't have any interest in making per-site registration pages that are controlled by the network admin. You're welcome to fork or submit a pull request on the github repository - https://github.com/Ipstenu/join-my-multisite
+
+= How can I personalize my widget for members? =
+
+This usually means you want to have something like "Howdy, Membername!" show in the widget, versus the default "Nice to see you again." For that you want to filter `jmm_member_welcome()` like this:
+
+`
+function filter_jmm_member_welcome( ) {
+	global $current_user;
+    get_currentuserinfo();
+	$welcome = 'Howdy, '.$current_user->display_name.'!';
+	return $welcome;
+}
+add_filter('jmm_member_welcome', 'filter_jmm_member_welcome');
+`
+
+==Changelog==
+
+= 1.8 =
+
+* Made widget 'welcome' for logged in users filterable
+* Changed shortcode 'welcome' for logged in users to announce username.
+
+= 1.7.8 =
+
+06 July, 2015
+
+* Updating widgets to be [compatible with PHP 5 constructors](https://markjaquith.wordpress.com/2009/09/29/using-php5-object-constructors-in-wp-widget-api/). Props chriscct7.
+
+
+== Upgrade Notice ==

@@ -87,6 +87,9 @@ class jmm_JMM_Widget extends WP_Widget {
                     echo '</form>';
                 } else {
                     // Otherwise we're already a member, hello, mum!
+                    if ( has_filter('jmm_member_welcome') ) {
+	                    $member = apply_filters('jmm_member_welcome', $member);
+	                }
                     echo '<p>'.$member.'</p>';
                 }
         
@@ -100,14 +103,11 @@ class jmm_JMM_Widget extends WP_Widget {
 
 		/* Strip tags (if needed) and update the widget settings. */
 		$instance['title'] = strip_tags( $new_instance['title'] );
-
 		$instance['notreg'] = strip_tags( $new_instance['notreg'] );
 		$instance['notmember'] = strip_tags( $new_instance['notmember'] );
-
 		$instance['member'] = strip_tags( $new_instance['member'] );
 		$instance['welcome'] = strip_tags( $new_instance['welcome'] );
         $instance['loginform'] = strip_tags( $new_instance['loginform'] );
-
         $instance['show_form'] = $new_instance['show_form'];      
 		return $instance;
 	}

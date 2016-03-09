@@ -3,14 +3,13 @@
 Plugin Name: Join My Multisite
 Plugin URI: http://halfelf.org/plugins/join-my-multisite/
 Description: Allow logged in users to add themselves to sites (or auto-add them to all sites). <strong>Settings are per-site, under the Users menu</strong>.
-Version: 1.7.8
+Version: 1.8
 Author: Mika Epstein (Ipstenu)
 Author URI: http://halfelf.org/
 Network: true
 Text Domain: join-my-multisite
-Domain Path: /i18n
 
-Copyright 2012-2015 Mika Epstein (email: ipstenu@ipstenu.org)
+Copyright 2012-2016 Mika Epstein (email: ipstenu@ipstenu.org)
 
     This file is part of Join My Multisite, a plugin for WordPress.
 
@@ -28,6 +27,10 @@ Copyright 2012-2015 Mika Epstein (email: ipstenu@ipstenu.org)
     along with WordPress.  If not, see <http://www.gnu.org/licenses/>.
 */
 
+if (!defined('ABSPATH')) {
+    die();
+}
+
 // First we check to make sure you meet the requirements
 global $wp_version;
 $exit_msg_version = 'Sorry, but this plugin is no longer supported on pre-3.7 WordPress installs.';
@@ -39,10 +42,6 @@ if( !is_multisite() ) { exit($exit_msg_multisite); }
 require_once dirname(__FILE__) . '/admin/defines.php';
 
 class JMM {
-
-    public static function init() {
-        load_plugin_textdomain( 'join-my-multisite', false, dirname( plugin_basename( __FILE__ ) ) . '/i18n/' );
-    }
 
     // donate link on manage plugin page
     public static function donate_link($links, $file) {

@@ -31,8 +31,9 @@ add_action( 'wpmu_activate_user', 'jmm_activate_user', 10, 3 );
 // Redirect wp-signup.php
 function jmm_signup_location($val) {
 	$jmm_options = get_option( 'helfjmm_options' );
-	if ( !is_null($jmm_options['perpage']) && $jmm_options['perpage'] != "XXXXXX" && !is_admin() )
-		{ return get_permalink($jmm_options['perpage']); }
+	if ( !is_null($jmm_options['perpage']) && $jmm_options['perpage'] != "XXXXXX" && !is_admin() ) { 
+		return get_permalink($jmm_options['perpage']);
+	}
 	return $val;
 }
 add_filter('wp_signup_location', 'jmm_signup_location');
@@ -60,20 +61,21 @@ function jmm_shortcode_func( $atts, $content = null ) {
 function jmm_shortcode_thissite_func( $atts, $content = null ) {
     $jmm_options = get_option( 'helfjmm_options' );
 
-if( isset($_POST['jmm-join-site']) || isset($_POST['join-site']) ){
-    // This is the magic sauce.
-    do_action('jmm_joinsite', array('JMM', 'join_site'));
-}
+	if( isset($_POST['jmm-join-site']) || isset($_POST['join-site']) ){
+	    // This is the magic sauce.
+	    do_action('jmm_joinsite', array('JMM', 'join_site'));
+	}
 
     if( !is_user_logged_in() ) {
+		// If user isn't logged in but we allow for registration....
 	    if ( get_option('users_can_register') == 1 ) {
-			// If user isn't logged in but we allow for registration....
-	                         
 			// IF we have a custom URL, use it, else send to /wp-signup.php
-			if ( !is_null($jmm_options['perpage']) && $jmm_options['perpage'] != "XXXXXX"  )
-				{$goto = get_permalink($jmm_options['perpage']); }
-			else
-				{$goto = '/wp-signup.php';}
+			if ( !is_null($jmm_options['perpage']) && $jmm_options['perpage'] != "XXXXXX"  ) {
+				$goto = get_permalink($jmm_options['perpage']);
+			}
+			else {
+				$goto = '/wp-signup.php';
+			}
 	                        
 			// Here is our form
 			return '<form action="'.$goto.'" method="post" id="notmember">
@@ -81,16 +83,15 @@ if( isset($_POST['jmm-join-site']) || isset($_POST['join-site']) ){
 			<input type="submit" value="'.__( 'Register For An Account', 'join-my-multisite' ).'" name="join-site" id="join-site" class="button">
 			</form>';
         }
-        // If we don't allow registration, we show nothing. On to the next one!
     } elseif( !is_user_member_of_blog() ) {
-    	// If user IS logged in, then let's invite them to play.    	
+	    // Else if users are logged in, invite them to join this blog if they're not a member
         return '<form action="?jmm-join-site" method="post" id="notmember">
         <input type="hidden" name="action" value="jmm-join-site">
         <input type="submit" value="'.__( 'Join This Site', 'join-my-multisite' ).'" name="join-site" id="join-site" class="button">
         </form>';
-
     } else {
-    	// Otherwise we're already a member, hello, mum!
-        return '<p>'.__( 'Howdy, Member!', 'join-my-multisite' ).'</p>';
+		// Otherwise we're already a member, hello, mum!
+    		$current_user = wp_get_current_user();
+        return '<p>'. sprintf( __( 'Howdy, %s!', 'join-my-multisite' ), esc_html( $current_user->display_name ) ) .'</p>';
     }
 }
