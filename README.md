@@ -1,7 +1,14 @@
 # Join My Multisite #
 
-Welcome to the GitHub development site for Join My Multisite.
+This is the development repository for the Join My Multisite plugin.
 
-The version here is actually 'trunk' so use at your own risk.
+## Documentation
 
-Allow site admins to automatically add existing users to their site, or let users decide at the click of a button.
+* [WP Readme](readme.txt)
+* [Changelog](changelog.txt)
+
+## Links
+
+* [Plugin Site](http://halfelf.org/plugins/join-my-multisite/)
+* [Basic Support](http://wordpress.org/support/plugin/join-my-multisite/)
+* [Donate](https://store.halfelf.org/donate/)
