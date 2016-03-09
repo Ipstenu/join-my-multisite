@@ -1,6 +1,5 @@
 <?php
 /*
-
     This file is part of Join My Multisite, a plugin for WordPress.
 
     Join My Multisite is free software: you can redistribute it and/or modify
