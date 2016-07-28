@@ -9,7 +9,7 @@ Author URI: http://halfelf.org/
 Network: true
 Text Domain: join-my-multisite
 
-Copyright 2012-2016 Mika Epstein (email: ipstenu@ipstenu.org)
+	Copyright 2012-2016 Mika Epstein (email: ipstenu@halfelf.org)
 
     This file is part of Join My Multisite, a plugin for WordPress.
 
