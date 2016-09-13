@@ -39,7 +39,22 @@ require_once dirname(__FILE__) . '/admin/defines.php';
 
 class JMM {
 
-    // donate link on manage plugin page
+	/**
+	 * Plugin Init
+	 *
+	 * @since 1.8
+	 * @access public
+	 */
+	public function init() {
+		
+	}
+
+	/**
+	 * Donate Link
+	 *
+	 * @since 1.0
+	 * @access public
+	 */
     public static function donate_link($links, $file) {
         if ($file == plugin_basename(__FILE__)) {
                 $donate_link = '<a href="https://store.halfelf.org/donate/">Donate</a>';
@@ -48,18 +63,34 @@ class JMM {
         return $links;
     }
 
-     // Sets up the settings page
+	/**
+	 * Add Settings Page
+	 *
+	 * @since 1.0
+	 * @access public
+	 */
 	public static function add_settings_page() {
         global $jmm_settings_page;
         $jmm_settings_page = add_users_page(__('Join My Multisite Settings','join-my-multisite'), __('Join My Multisite','join-my-multisite'), 'manage_options', 'jmm', array('JMM', 'settings_page'));
     	}
-	 
- 	public static function settings_page() {
+    	
+	/**
+	 * Settings Page Content
+	 *
+	 * @since 1.0
+	 * @access public
+	 */
+	public static function settings_page() {
 	   // Main Settings
 		include_once( JMM_PLUGIN_DIR . '/admin/settings.php');
 	}
 	
-	    // Add users
+	/**
+	 * Join Site code
+	 *
+	 * @since 1.0
+	 * @access public
+	 */
     static function join_site( ) {
         global $current_user, $blog_id;
         
