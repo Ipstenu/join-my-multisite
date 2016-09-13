@@ -40,13 +40,29 @@ require_once dirname(__FILE__) . '/admin/defines.php';
 class JMM {
 
 	/**
-	 * Plugin Init
+	 * Plugin Construct
 	 *
 	 * @since 1.8
 	 * @access public
 	 */
-	public function init() {
+	public function __construct() {
+		// Registers our widget.
+		function jmm_load_add_user_widgets() {
+		    include_once( JMM_PLUGIN_DIR . '/lib/widget.php');
+		}
 		
+		// This is what controls how people get added.
+		$jmm_options = get_option( 'helfjmm_options' );
+		if ($jmm_options['type'] == 1) { add_action('init', array('JMM','join_site')); }
+		if ($jmm_options['type'] == 2) { add_action( 'widgets_init', 'jmm_load_add_user_widgets' ); }
+		
+		// Shortcode
+		include_once( JMM_PLUGIN_DIR . '/lib/shortcode.php');
+		
+		add_filter('plugin_row_meta', array( &$this, 'donate_link'), 10, 2);
+		add_action('admin_menu', array( &$this, 'add_settings_page'), 10, 2);
+		add_action('jmm_joinsite', array( &$this, 'join_site'), 10, 2);
+		//add_action('plugins_loaded', array( &$this, 'init'), 10, 2);
 	}
 
 	/**

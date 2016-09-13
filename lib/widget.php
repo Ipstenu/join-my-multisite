@@ -20,7 +20,13 @@ if (!defined('ABSPATH')) {
     die();
 }
 
-// Basic JMM Widget
+/**
+ * JMM Widget Code
+ *
+ * @since 1.0
+ * @access public
+ */
+ 
 class jmm_JMM_Widget extends WP_Widget {
 
     function __construct() {
