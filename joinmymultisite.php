@@ -31,10 +31,6 @@ if (!defined('ABSPATH')) {
     die();
 }
 
-// First we check to make sure you meet the requirements
-global $wp_version;
-$exit_msg_version = 'Sorry, but this plugin is no longer supported on pre-3.7 WordPress installs.';
-if (version_compare($wp_version,"3.7","<")) { exit($exit_msg_version); }
 $exit_msg_multisite = 'This plugin only functions on WordPress Multisite.';
 if( !is_multisite() ) { exit($exit_msg_multisite); }
 
