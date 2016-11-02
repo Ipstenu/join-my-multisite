@@ -2,7 +2,7 @@
 Contributors: Ipstenu
 Tags: multisite, registration, users
 Requires at least: 3.7
-Tested up to: 4.6
+Tested up to: 4.7
 Stable tag: 1.8
 Donate link: https://store.halfelf.org/donate/
 
