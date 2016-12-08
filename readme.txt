@@ -110,15 +110,14 @@ add_filter('jmm_member_welcome', 'filter_jmm_member_welcome');
 ==Changelog==
 
 = 1.8 =
+08 December, 2016
 
 * Made widget 'welcome' for logged in users filterable
 * Changed shortcode 'welcome' for logged in users to announce username.
 
 = 1.7.8 =
-
 06 July, 2015
 
 * Updating widgets to be [compatible with PHP 5 constructors](https://markjaquith.wordpress.com/2009/09/29/using-php5-object-constructors-in-wp-widget-api/). Props chriscct7.
-
 
 == Upgrade Notice ==
