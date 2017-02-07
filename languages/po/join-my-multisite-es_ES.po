@@ -1,0 +1,258 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: join-my-multisite\n"
+"POT-Creation-Date: 2017-02-07 13:50-0600\n"
+"PO-Revision-Date: 2017-02-07 14:09-0600\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.8.11\n"
+"X-Poedit-Basepath: join-my-multisite-master\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Poedit-KeywordsList: __;_e\n"
+"Last-Translator: \n"
+"Language: es\n"
+"X-Poedit-SearchPath-0: .\n"
+
+#: admin/settings.php:43
+msgid "Options Updated!"
+msgstr "Opciones actualizadas!"
+
+#: admin/settings.php:49 joinmymultisite.php:90
+msgid "Join My Multisite Settings"
+msgstr "Opciones de Join My Multisite"
+
+#: admin/settings.php:59
+msgid "Select a membership type and a default role."
+msgstr "Seleccione el tipo de miembro y el rol por defecto."
+
+#: admin/settings.php:64
+msgid "Membership:"
+msgstr "Tipo de miembro:"
+
+#: admin/settings.php:66
+msgid "Automatic"
+msgstr "Automatico"
+
+#: admin/settings.php:67
+msgid "Manual"
+msgstr "Manual"
+
+#: admin/settings.php:68
+msgid "None"
+msgstr "Ninguno"
+
+#: admin/settings.php:71
+msgid "Auto-Add signed in users to this site when they visit."
+msgstr ""
+"Agregar automáticamente usuarios registrados cuando visiten este sitio."
+
+#: admin/settings.php:72
+msgid ""
+"Allow signed in users to join via a widget or the shortcode <code>[join-this-"
+"site]</code>."
+msgstr ""
+"Permitir usuarios registrados unirse a este sitio por medio de widget o el "
+"shortcode <code>[join-this-site]</code>."
+
+#: admin/settings.php:73
+msgid "Don't allow new users to add themselves this site, add them manually."
+msgstr ""
+"No permitir que nuevos usuarios se agreguen a si mismos, agregarlos "
+"manualmente."
+
+#: admin/settings.php:76
+msgid ""
+"To allow users to register via a button on any page or post on your site, "
+"use the shortcode <code>[join-this-site]</code> - Simply insert it and "
+"you're good!"
+msgstr ""
+"Para permitir el registro de usuarios por medio del botón en cualquier "
+"pagina o post en tu sitio, usa el shortcode <code>[join-this-site]</code> - "
+"¡Simplemente insértalo y todo funcionara!"
+
+#: admin/settings.php:88
+msgid "Registration:"
+msgstr "Registro:"
+
+#: admin/settings.php:90
+msgid "Per-Site"
+msgstr "Por Sitio"
+
+#: admin/settings.php:92
+msgid ""
+"Check this box if you want to use a shortcode to customize per-site "
+"registration. If unchecked, registrations will be sent to the network "
+"registration page."
+msgstr ""
+"Marca aquí si quieres usar el shortcode para personalizar el registro por "
+"sitio. Sin marcar, registros serán enviados a la pagina de registro de la "
+"red."
+
+#: admin/settings.php:102
+msgid "Join My Multisite needs your attention:"
+msgstr "Join My Multisite necesita tu atención:"
+
+#: admin/settings.php:102
+msgid ""
+"You've selected custom registration but have not selected a page to use. No "
+"one will be able to register for your site until you fix this."
+msgstr ""
+"Has seleccionado el registro personalizado pero no has seleccionado una "
+"pagina para usar. Nadie podrá registrarse hasta que arregles esto."
+
+#: admin/settings.php:106
+msgid "&mdash; Select &mdash;"
+msgstr "&mdash; Selecciona &mdash;"
+
+#: admin/settings.php:111
+msgid ""
+"Users who are not logged in will be redirected to the perpage you select "
+"from the dropdowns. Only top-level pages may be used. Use the following "
+"shortcode to display the login form:"
+msgstr ""
+"Usuarios sin identificarse serán llevados a la pagina que seleccionaste de "
+"la lista. Solo paginas padres pueden usarse. Utiliza este shortcode para "
+"mostrar el formulario de registro:"
+
+#: admin/settings.php:120
+msgid "New User Default Role:"
+msgstr "Rol por defecto para los usuarios nuevos:"
+
+#: admin/settings.php:131
+msgid "Update Options"
+msgstr "Guardar"
+
+#: joinmymultisite.php:90
+msgid "Join My Multisite"
+msgstr "Join My Multisite"
+
+#: lib/shortcode.php:83
+msgid "Register For An Account"
+msgstr "Registrarse"
+
+#: lib/shortcode.php:90
+msgid "Join This Site"
+msgstr "Unirse a este sitio"
+
+#: lib/shortcode.php:95
+#, php-format
+msgid "Howdy, %s!"
+msgstr "¡Hola %s!"
+
+#: lib/signuppage.php:74
+msgid "Username:"
+msgstr "Nombre de usuario:"
+
+#: lib/signuppage.php:79
+msgid "(Must be at least 4 characters, letters and numbers only.)"
+msgstr "(Debe tener al menos cuatro caracteres, solo números y letras."
+
+#: lib/signuppage.php:82
+msgid "Email&nbsp;Address:"
+msgstr "Correo electrónico:"
+
+#: lib/signuppage.php:86
+msgid ""
+"We send your registration email to this address. (Double-check your email "
+"address before continuing.)"
+msgstr ""
+"Te enviaremos un correo de registro a esta dirección. Revisa que sea "
+"correcta antes de continuar)"
+
+#: lib/signuppage.php:164
+#, php-format
+msgid "Create your account on %s"
+msgstr "Crear una cuenta en %s"
+
+#: lib/signuppage.php:215
+#, php-format
+msgid "%s is your new username"
+msgstr "%s es tu nuevo nombre de usuario"
+
+#: lib/signuppage.php:216
+msgid ""
+"Before you can start using your new username, <strong>you must activate it</"
+"strong>."
+msgstr ""
+"Antes de que puedas usar tu nuevo nombre de usuario, <strong>debes "
+"activarlo</strong>."
+
+#: lib/signuppage.php:217
+#, php-format
+msgid "Check your inbox at <strong>%s</strong> and click the link given."
+msgstr ""
+"Revisa tu cuenta de correo <strong>%s</strong> y haz clic en el enlace."
+
+#: lib/signuppage.php:218
+msgid ""
+"If you do not activate your username within two days, you will have to sign "
+"up again."
+msgstr ""
+"Si no activas tu nombre de usuario en dos días, tendrás que empezar de nuevo."
+
+#: lib/signuppage.php:244
+#, php-format
+msgid ""
+"Greetings Network Administrator! You are currently allowing &#8220;%s&#8221; "
+"registrations. To change or disable registration go to your <a href=\"%s"
+"\">Options page</a>."
+msgstr ""
+"¡Saludos Administrador de Red! Actualmente permites registros de tipo &#8220;"
+"%s&#8221;. Para cambiar esto, ve a la pagina de <a href=\"%s\">opciones</a>."
+
+#: lib/signuppage.php:250
+msgid "Registration has been disabled."
+msgstr "El registro fue deshabilitado."
+
+#: lib/signuppage.php:253
+#, php-format
+msgid ""
+"You must first <a href=\"%s\">log in</a>, and then you can join this site."
+msgstr ""
+"Primero <a href=\"%s\">identificate</a>, luego puedes unirte a este sitio."
+
+#: lib/signuppage.php:261
+msgid "User registration has been disabled."
+msgstr "El registro de usuarios fue deshabilitado."
+
+#: lib/signuppage.php:276
+msgid "You are logged in already. No need to register again!"
+msgstr "¡Ya te identificaste, no debes registrarte otra vez!"
+
+#: lib/widget.php:81
+msgid "Log in"
+msgstr "Identificarse"
+
+#: lib/widget.php:127
+msgid "Title:"
+msgstr "Titulo:"
+
+#: lib/widget.php:133
+msgid "Button Text"
+msgstr "Texto del botón"
+
+#: lib/widget.php:137
+msgid "Not registered on the network:"
+msgstr "Sin registrarse en la red:"
+
+#: lib/widget.php:142
+msgid "Show in-line login form."
+msgstr "Mostrar formulario en línea."
+
+#: lib/widget.php:147
+msgid "Not a member of this site:"
+msgstr "No es miembro de este sitio:"
+
+#: lib/widget.php:153
+msgid "Welcome Message Text"
+msgstr "Texto para \"Mensaje de bienvenida\""
+
+#: lib/widget.php:156
+msgid "Existing members:"
+msgstr "Miembros actuales:"
+
+#: lib/widget.php:161
+msgid "New member (shown on signup):"
+msgstr "Nuevos miembros (mostrar en registro):"

@@ -63,6 +63,10 @@ class JMM {
 		add_action('admin_menu', array( &$this, 'add_settings_page'), 10, 2);
 		add_action('jmm_joinsite', array( &$this, 'join_site'), 10, 2);
 		//add_action('plugins_loaded', array( &$this, 'init'), 10, 2);
+		add_action('plugins_loaded', function(){
+			load_plugin_textdomain( 'join-my-multisite', false, dirname( plugin_basename( __FILE__ ) ) . '/languages/' );
+			
+		}, 10, 2);
 	}
 
 	/**
