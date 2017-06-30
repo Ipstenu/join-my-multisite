@@ -110,9 +110,10 @@ add_filter('jmm_member_welcome', 'filter_jmm_member_welcome');
 ==Changelog==
 
 = 1.9 =
-February, 2017
+30 June, 2017
 
 * Remove need for JMM_PLUGIN_DIR define
+* Warning for people who don't have registrations open (seriously?)
 
 = 1.8 =
 08 December, 2016
