@@ -3,7 +3,7 @@ Contributors: Ipstenu
 Tags: multisite, registration, users
 Requires at least: 3.7
 Tested up to: 4.8
-Stable tag: 1.9
+Stable tag: 1.9.0
 Donate link: https://store.halfelf.org/donate/
 
 Allow site admins to automatically add existing users to their site, or let users decide at the click of a button.
