@@ -2,8 +2,8 @@
 Contributors: Ipstenu
 Tags: multisite, registration, users
 Requires at least: 3.7
-Tested up to: 4.7
-Stable tag: 1.8
+Tested up to: 4.8
+Stable tag: 1.9
 Donate link: https://store.halfelf.org/donate/
 
 Allow site admins to automatically add existing users to their site, or let users decide at the click of a button.
@@ -109,15 +109,15 @@ add_filter('jmm_member_welcome', 'filter_jmm_member_welcome');
 
 ==Changelog==
 
+= 1.9 =
+February, 2017
+
+* Remove need for JMM_PLUGIN_DIR define
+
 = 1.8 =
 08 December, 2016
 
 * Made widget 'welcome' for logged in users filterable
 * Changed shortcode 'welcome' for logged in users to announce username.
-
-= 1.7.8 =
-06 July, 2015
-
-* Updating widgets to be [compatible with PHP 5 constructors](https://markjaquith.wordpress.com/2009/09/29/using-php5-object-constructors-in-wp-widget-api/). Props chriscct7.
 
 == Upgrade Notice ==

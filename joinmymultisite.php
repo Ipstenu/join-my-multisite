@@ -3,13 +3,13 @@
 Plugin Name: Join My Multisite
 Plugin URI: http://halfelf.org/plugins/join-my-multisite/
 Description: Allow logged in users to add themselves to sites (or auto-add them to all sites). <strong>Settings are per-site, under the Users menu</strong>.
-Version: 1.8
+Version: 1.9
 Author: Mika Epstein (Ipstenu)
 Author URI: http://halfelf.org/
 Network: true
 Text Domain: join-my-multisite
 
-	Copyright 2012-2016 Mika Epstein (email: ipstenu@halfelf.org)
+	Copyright 2012-2017 Mika Epstein (email: ipstenu@halfelf.org)
 
     This file is part of Join My Multisite, a plugin for WordPress.
 
@@ -46,24 +46,44 @@ class JMM {
 	 * @access public
 	 */
 	public function __construct() {
-		// Registers our widget.
-		function jmm_load_add_user_widgets() {
-		    include_once( JMM_PLUGIN_DIR . '/lib/widget.php');
+		
+		if ( get_option( 'users_can_register' ) == true ) {
+			
+			// Registers our widget.
+			function jmm_load_add_user_widgets() {
+			    include_once( 'lib/widget.php');
+			}
+			
+			// This is what controls how people get added.
+			$jmm_options = get_option( 'helfjmm_options' );
+			if ($jmm_options['type'] == 1) add_action( 'init', array( 'JMM','join_site' ) );
+			if ($jmm_options['type'] == 2) add_action( 'widgets_init', 'jmm_load_add_user_widgets' );
+			
+			// Shortcode
+			include_once( 'lib/shortcode.php');
+			
+			add_filter('plugin_row_meta', array( &$this, 'donate_link'), 10, 2);
+			add_action('admin_menu', array( &$this, 'add_settings_page'), 10, 2);
+			add_action('jmm_joinsite', array( &$this, 'join_site'), 10, 2);
+			//add_action('plugins_loaded', array( &$this, 'init'), 10, 2);
+		} else {
+			add_action( 'network_admin_notices', array( &$this, 'network_admin_notices_users_can_register') );
 		}
-		
-		// This is what controls how people get added.
-		$jmm_options = get_option( 'helfjmm_options' );
-		if ($jmm_options['type'] == 1) { add_action('init', array('JMM','join_site')); }
-		if ($jmm_options['type'] == 2) { add_action( 'widgets_init', 'jmm_load_add_user_widgets' ); }
-		
-		// Shortcode
-		include_once( JMM_PLUGIN_DIR . '/lib/shortcode.php');
-		
-		add_filter('plugin_row_meta', array( &$this, 'donate_link'), 10, 2);
-		add_action('admin_menu', array( &$this, 'add_settings_page'), 10, 2);
-		add_action('jmm_joinsite', array( &$this, 'join_site'), 10, 2);
-		//add_action('plugins_loaded', array( &$this, 'init'), 10, 2);
+
 	}
+
+	/**
+	 * Network Admin Notices
+	 *
+	 * @since 1.9
+	 */
+    public function network_admin_notices_users_can_register() {
+	    ?>
+	    <div class="notice update-nag">
+	        <p><?php printf( __('Join My Multisite requires user registration to be enabled. Please <a href="%s">enable that in your Registration Settings</a> to continue.', 'join-my-multisite' ), admin_url( '/network/settings.php' ) ); ?></p>
+	    </div>
+	    <?php
+    }
 
 	/**
 	 * Donate Link
@@ -98,7 +118,7 @@ class JMM {
 	 */
 	public static function settings_page() {
 	   // Main Settings
-		include_once( JMM_PLUGIN_DIR . '/admin/settings.php');
+		include_once( 'admin/settings.php');
 	}
 	
 	/**

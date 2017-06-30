@@ -25,8 +25,6 @@ define( 'JMM', true);
 
 if ( !defined('join_my_multisite')) {define('join_my_multisite','join_my_multisite');} // Translation 
 
-defined('JMM_PLUGIN_DIR') || define('JMM_PLUGIN_DIR', realpath(dirname(__FILE__) . '/..'));
-
 if (!get_option( 'helfjmm_options' )) {
     $jmm_options = get_option( 'helfjmm_options' );
         if ( !isset($jmm_options['type']) ) $jmm_options['type'] = '3';
