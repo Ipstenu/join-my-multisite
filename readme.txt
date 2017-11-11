@@ -2,9 +2,9 @@
 Contributors: Ipstenu
 Tags: multisite, registration, users
 Requires at least: 3.7
-Tested up to: 4.8
+Tested up to: 4.9
 Stable tag: 1.9.0
-Donate link: https://store.halfelf.org/donate/
+Donate link: https://ko-fi.com/A236CENl/
 
 Allow site admins to automatically add existing users to their site, or let users decide at the click of a button.
 
@@ -29,7 +29,7 @@ If they decide to auto-add, then any time a logged in user visits a site, they w
 When you have registration turned on, each site can chose to use 'Per Site Registration,' which will allow them to create a page on their site just for registrations and signups. To display the signup code, just put <code>[join-my-multisite]</code> on the page.
 
 * [Plugin Site](http://halfelf.org/plugins/join-my-multisite/)
-* [Donate](https://store.halfelf.org/donate/)
+* [Donate](https://ko-fi.com/A236CENl/)
 
 == Installation ==
 
